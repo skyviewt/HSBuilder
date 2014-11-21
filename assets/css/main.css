@@ -1,0 +1,132 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,100,700,900);
+@import url(http://fonts.googleapis.com/css?family=Skranji);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+body
+{
+    background-image:		url('../img/bg.png');
+    background-repeat:		repeat,								no-repeat;
+    background-size:		auto,								cover;
+    background-position: 	top left,							center 0;
+    background-attachment:	fixed,								fixed;
+    font-family: 'Roboto';
+    color: #e2dede;
+}
+
+body.is-scroll
+{
+    background-attachment:	scroll,								scroll;
+    background-size:		auto,								100% auto;
+}
+
+body.is-loading *
+{
+    -moz-transition: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+    -moz-animation: none !important;
+    -webkit-animation: none !important;
+    -o-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+}
+.thin {
+    font-weight: 300;
+}
+.center {
+    text-align: center;
+}
+#logo{
+    font-family: 'Skranji';
+    font-size: 40px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    color: #270B09;
+    text-shadow: -1px 1px 0 #773D3D;
+    
+
+}
+#hslogo {
+    font-family: 'Skranji';
+    color: #BBB;
+}
+.welcometitle {
+    font-family: 'Montserrat';
+    
+    text-align: center;
+    color: white;
+    padding: 10px;
+
+   
+}
+
+#logo:hover {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    color: #FFEE75;
+    background: none;
+    text-shadow: 0px 0px 9px rgb(255, 133, 45);
+}
+a {
+    color: #D7BD0F;
+    cursor: pointer;
+}
+.navbar-collapse.collapse {
+    border-bottom: 1px solid #202330;
+
+    background: -webkit-linear-gradient(rgb(176, 39, 39),rgb(55, 6, 34)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(176, 39, 39),rgb(55, 6, 34)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(176, 39, 39),rgb(55, 6, 34)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(176, 39, 39),rgb(55, 6, 34)); /* Standard syntax (must be last) */
+
+}
+.nav > li > a {
+    font-size: 18px;
+    color: #270B09;
+    text-shadow: 1px 0px 0 #773D3D;
+}
+
+.nav > li > a >span {
+
+    margin-right: 3px;
+}
+.nav > li > a:not(#logo):hover, .nav > li > a:not(#logo):focus {
+    background-color: transparent;
+    text-shadow: -1px 0px 0 #7B2F2F;
+    box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.59) inset;
+    color: #3D1212;
+    
+}
+
+.frame {
+    max-width: 70%;
+margin: 0 auto;
+padding: 80px;
+background: url('../img/frame.png') center center no-repeat;
+margin-top: 30px;
+ background-color: transparent;
+background-size: contain;
+    background-position: fixed;
+    padding-top:0;
+}
+.centered {
+    margin: 0 auto;
+}
+.top {
+    padding-top: 30px;
+}
+
+
+
+
+
