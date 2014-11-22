@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  data-ng-app="HSAPP">
 <head>
     <script type="text/javascript" src="../bower_components/jquery/src/jquery.js"></script>
     <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
@@ -131,7 +131,7 @@
                 <div class="info">
                   <div class="info-back">
                     <h3><span class="glyphicon glyphicon-fire" aria-hidden="true"></span></h3>
-                    <p>Worlock</p>
+                    <p>Warlock</p>
                   </div>
                 </div></a></div>
           </div>
