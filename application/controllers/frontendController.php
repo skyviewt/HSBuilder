@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class frontendController extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,8 +18,17 @@ class Welcome extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-		$this->load->view('index');
+	{	
+		//head info
+		$data['base_url'] = config_item('base_url');
+		$data['title'] = "HS Arena DeckBuilder";
+		$data['css_path'] = config_item('css_path');
+		$data['css_files'] = array('hover.css', 'main.css');
+		$data['img_path'] = config_item('img_path');
+		
+		$this->load->view('common/head', $data);
+		$this->load->view('common/nav');
+		$this->load->view('index', $data);
 	}
 }
 
