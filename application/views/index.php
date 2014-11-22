@@ -7,7 +7,7 @@
           <div class="col-sm-4 ">
             <div class="ih-item circle effect1 centered"><a href="#">
                 <div class="spinner"></div>
-                <div class="img"><img src="<?=$img_path?>hunter.jpg" alt="img"></div>
+                <div class="img"><img src="<?=$base_url.$img_path?>hunter.jpg" alt="img"></div>
                 <div class="info">
                   <div class="info-back">
                     <h3><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span></h3>
@@ -19,7 +19,7 @@
           <div class="col-sm-4 ">
             <div class="ih-item circle effect1 centered"><a href="#">
                 <div class="spinner"></div>
-                <div class="img"><img src="<?=$img_path?>mage.jpg" alt="img"></div>
+                <div class="img"><img src="<?=$base_url.$img_path?>mage.jpg" alt="img"></div>
                 <div class="info">
                   <div class="info-back">
                     <h3><span class="glyphicon glyphicon-tint" aria-hidden="true"></span></h3>
@@ -31,7 +31,7 @@
           <div class="col-sm-4 ">
             <div class="ih-item circle effect1 centered"><a href="#">
                 <div class="spinner"></div>
-                <div class="img"><img src="<?=$img_path?>paladin.jpg" alt="img"></div>
+                <div class="img"><img src="<?=$base_url.$img_path?>paladin.jpg" alt="img"></div>
                 <div class="info">
                   <div class="info-back">
                     <h3><span class="glyphicon glyphicon-tower" aria-hidden="true"></span></h3>
@@ -45,7 +45,7 @@
           <div class="col-sm-4 ">
             <div class="ih-item circle effect1 centered"><a href="#">
                 <div class="spinner"></div>
-                <div class="img"><img src="<?=$img_path?>druid.jpg" alt="img"></div>
+                <div class="img"><img src="<?=$base_url.$img_path?>druid.jpg" alt="img"></div>
                 <div class="info">
                   <div class="info-back">
                     <h3><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></h3>
@@ -57,7 +57,7 @@
           <div class="col-sm-4 ">
             <div class="ih-item circle effect1 centered"><a href="#">
                 <div class="spinner"></div>
-                <div class="img"><img src="<?=$img_path?>warrior.jpg" alt="img"></div>
+                <div class="img"><img src="<?=$base_url.$img_path?>warrior.jpg" alt="img"></div>
                 <div class="info">
                   <div class="info-back">
                     <h3><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span></h3>
@@ -69,7 +69,7 @@
           <div class="col-sm-4 ">
             <div class="ih-item circle effect1 centered"><a href="#">
                 <div class="spinner"></div>
-                <div class="img"><img src="<?=$img_path?>shaman.jpg" alt="img"></div>
+                <div class="img"><img src="<?=$base_url.$img_path?>shaman.jpg" alt="img"></div>
                 <div class="info">
                   <div class="info-back">
                     <h3><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></h3>
@@ -84,7 +84,7 @@
           <div class="col-sm-4">
             <div class="ih-item circle effect1 centered "><a href="#">
                 <div class="spinner"></div>
-                <div class="img"><img src="<?=$img_path?>rogue.jpg" alt="img"></div>
+                <div class="img"><img src="<?=$base_url.$img_path?>rogue.jpg" alt="img"></div>
                 <div class="info">
                   <div class="info-back">
                     <h3><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></h3>
@@ -96,7 +96,7 @@
           <div class="col-sm-4">
             <div class="ih-item circle effect1 centered"><a href="#">
                 <div class="spinner"></div>
-                <div class="img"><img src="<?=$img_path?>worlock.jpg" alt="img"></div>
+                <div class="img"><img src="<?=$base_url.$img_path?>worlock.jpg" alt="img"></div>
                 <div class="info">
                   <div class="info-back">
                     <h3><span class="glyphicon glyphicon-fire" aria-hidden="true"></span></h3>
@@ -108,7 +108,7 @@
           <div class="col-sm-4">
             <div class="ih-item circle effect1 centered"><a href="#">
                 <div class="spinner"></div>
-                <div class="img"><img src="<?=$img_path?>priest.jpg" alt="img"></div>
+                <div class="img"><img src="<?=$base_url.$img_path?>priest.jpg" alt="img"></div>
                 <div class="info">
                   <div class="info-back">
                     <h3><span class="glyphicon glyphicon-flash" aria-hidden="true"></span></h3>

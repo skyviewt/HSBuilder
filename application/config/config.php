@@ -14,6 +14,7 @@
 | path to your installation.
 |
 */
+//$config['base_url']	= '/arenaHS/';
 $config['base_url']	= '/';
 $config['css_path'] = 'assets/css/';
 $config['js_path'] = 'assets/js/';
@@ -29,7 +30,7 @@ $config['img_path'] = 'assets/img/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

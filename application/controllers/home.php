@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class frontendController extends CI_Controller {
+class Home extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -29,6 +29,11 @@ class frontendController extends CI_Controller {
 		$this->load->view('common/head', $data);
 		$this->load->view('common/nav');
 		$this->load->view('index', $data);
+	}
+
+	public function login()
+	{
+		echo 'to be implement';
 	}
 }
 
