@@ -19,7 +19,7 @@ class Api extends REST_Controller {
         }
         else if($this->get('id'))
         {
-            $this->response($this->card->get_class($this->get_card($this->get('id'))), 200);
+            $this->response($this->card->get_card($this->get('id')), 200);
         }
         else if($this->get('class'))
         {
