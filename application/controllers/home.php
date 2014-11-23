@@ -30,8 +30,20 @@ class Home extends CI_Controller {
 		$this->load->view('common/nav');
 		$this->load->view('index', $data);
 	}
+    
+    public function stats()
+    {
+        echo 'to be implement';
+    }
 
+    //return json not render views
 	public function login()
+	{
+		echo 'to be implement';
+	}
+    
+    //return json not render views
+    public function signup()
 	{
 		echo 'to be implement';
 	}
