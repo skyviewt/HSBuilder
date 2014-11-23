@@ -6,15 +6,29 @@ class Api extends REST_Controller {
     // /api/cards
     public function cards_get()
     {
-        //TODO: query param: class: /api/cards/class/{className} single card: /api/cards/id/{id}
+        //query param: class: /api/cards/class/{className} single card: /api/cards/id/{id}       
+        $this->load->model('Card_model', 'card', TRUE);
         
-        $cards = array(
-			1 => array('id' => 1, 'name' => 'Tirion Fordring', 'class' => 'paladin', 'atk' => '6', 'hp' => '6', 'effect' => array('taunt', 'divine shield')),
-			2 => array('id' => 2, 'name' => 'King Krush', 'atk' => '8', 'hp' => '8'),
-			3 => array('id' => 3, 'name' => 'skyview', 'atk' => 'infinity', 'hp' => 'infinity')
-		);
-        
-         $this->response($cards, 200);
+        if(count($this->get()) == 0)
+        {
+            $this->response($this->card->get_all(), 200);
+        }
+        else if(count($this->get()) > 1)
+        {
+            $this->response(array('error' => 'too many parameters'), 400);
+        }
+        else if($this->get('id'))
+        {
+            $this->response($this->card->get_class($this->get_card($this->get('id'))), 200);
+        }
+        else if($this->get('class'))
+        {
+            $this->response($this->card->get_class($this->get('class')), 200);
+        }
+        else
+        {
+            $this->response(array('error' => 'invalid parameter has been passed. The accepted parameters are "class" or "id"'), 400);
+        }     
     }
     
     // /api/stats
