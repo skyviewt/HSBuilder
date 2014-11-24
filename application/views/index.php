@@ -1,12 +1,12 @@
 
- <div class="frame" >
+<div class="frame page-wrap" >
      <div class="welcometitle">
         <h4>Choose Your class</h4>
     </div>
      <div class="row top">
 
           <div class="col-sm-4 ">
-            <div class="ih-item circle effect1 centered"><a href="#">
+            <div class="ih-item circle effect1 centered"><a href="/home/selection">
                 <div class="spinner"></div>
                 <div class="img"><img src="<?=$base_url.$img_path?>hunter.jpg" alt="img"></div>
                 <div class="info">
@@ -18,7 +18,7 @@
           </div>
 
           <div class="col-sm-4 ">
-            <div class="ih-item circle effect1 centered"><a href="#">
+            <div class="ih-item circle effect1 centered"><a href="/home/selection">
                 <div class="spinner"></div>
                 <div class="img"><img src="<?=$base_url.$img_path?>mage.jpg" alt="img"></div>
                 <div class="info">
@@ -30,7 +30,7 @@
           </div>
 
           <div class="col-sm-4 ">
-            <div class="ih-item circle effect1 centered"><a href="#">
+            <div class="ih-item circle effect1 centered"><a href="/home/selection">
                 <div class="spinner"></div>
                 <div class="img"><img src="<?=$base_url.$img_path?>paladin.jpg" alt="img"></div>
                 <div class="info">
@@ -44,7 +44,7 @@
          <div class="row top">
 
           <div class="col-sm-4 ">
-            <div class="ih-item circle effect1 centered"><a href="#">
+            <div class="ih-item circle effect1 centered"><a href="/home/selection">
                 <div class="spinner"></div>
                 <div class="img"><img src="<?=$base_url.$img_path?>druid.jpg" alt="img"></div>
                 <div class="info">
@@ -56,7 +56,7 @@
           </div>
 
           <div class="col-sm-4 ">
-            <div class="ih-item circle effect1 centered"><a href="#">
+            <div class="ih-item circle effect1 centered"><a href="/home/selection">
                 <div class="spinner"></div>
                 <div class="img"><img src="<?=$base_url.$img_path?>warrior.jpg" alt="img"></div>
                 <div class="info">
@@ -68,12 +68,12 @@
           </div>
 
           <div class="col-sm-4 ">
-            <div class="ih-item circle effect1 centered"><a href="#">
+            <div class="ih-item circle effect1 centered"><a href="/home/selection">
                 <div class="spinner"></div>
                 <div class="img"><img src="<?=$base_url.$img_path?>shaman.jpg" alt="img"></div>
                 <div class="info">
                   <div class="info-back">
-                    <h3><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></h3>
+                    <h3><span class="glyphicon glyphicon-flash" aria-hidden="true"></span></h3>
                     <p>Shaman</p>
                   </div>
                 </div></a></div> 
@@ -83,7 +83,7 @@
          <div class="row top">
 
           <div class="col-sm-4">
-            <div class="ih-item circle effect1 centered "><a href="#">
+            <div class="ih-item circle effect1 centered "><a href="/home/selection">
                 <div class="spinner"></div>
                 <div class="img"><img src="<?=$base_url.$img_path?>rogue.jpg" alt="img"></div>
                 <div class="info">
@@ -95,7 +95,7 @@
           </div>
 
           <div class="col-sm-4">
-            <div class="ih-item circle effect1 centered"><a href="#">
+            <div class="ih-item circle effect1 centered"><a href="/home/selection">
                 <div class="spinner"></div>
                 <div class="img"><img src="<?=$base_url.$img_path?>worlock.jpg" alt="img"></div>
                 <div class="info">
@@ -107,17 +107,17 @@
           </div>
 
           <div class="col-sm-4">
-            <div class="ih-item circle effect1 centered"><a href="#">
+            <div class="ih-item circle effect1 centered"><a href="/home/selection">
                 <div class="spinner"></div>
                 <div class="img"><img src="<?=$base_url.$img_path?>priest.jpg" alt="img"></div>
                 <div class="info">
                   <div class="info-back">
-                    <h3><span class="glyphicon glyphicon-flash" aria-hidden="true"></span></h3>
+                    <h3><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></h3>
                     <p>Priest</p>
                   </div>
                 </div></a></div> 
           </div>
         </div>
     </div>  
-	<!--<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>-->
-
+</body>
+</html>

@@ -2,7 +2,7 @@
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li>
-          <a id="logo">
+          <a id="logo" href="/home/index">
         HearthBuilder
             </a>
         </li>

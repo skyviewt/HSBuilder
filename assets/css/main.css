@@ -1,26 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,100,700,900);
-@import url(http://fonts.googleapis.com/css?family=Skranji);
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
-
-body
-{
-    background-image:		url('../img/bg.png');
-    background-repeat:		repeat,								no-repeat;
-    background-size:		auto,								cover;
-    background-position: 	top left,							center 0;
-    background-attachment:	fixed,								fixed;
-    font-family: 'Roboto';
+ @import url(http://fonts.googleapis.com/css?family=Skranji);
+ @import url(http://fonts.googleapis.com/css?family=Montserrat);
+ body {
+    background-image: url('../img/bg.png');
+    background-repeat: repeat, no-repeat;
+    background-size: auto, cover;
+    background-position: top left, center 0;
+    background-attachment: fixed, fixed;
+    font-family:'Roboto';
     color: #e2dede;
 }
-
-body.is-scroll
-{
-    background-attachment:	scroll,								scroll;
-    background-size:		auto,								100% auto;
+body.is-scroll {
+    background-attachment: scroll, scroll;
+    background-size: auto, 100% auto;
 }
-
-body.is-loading *
-{
+body.is-loading * {
     -moz-transition: none !important;
     -webkit-transition: none !important;
     -o-transition: none !important;
@@ -38,8 +32,8 @@ body.is-loading *
 .center {
     text-align: center;
 }
-#logo{
-    font-family: 'Skranji';
+#logo {
+    font-family:'Skranji';
     font-size: 40px;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
@@ -48,20 +42,14 @@ body.is-loading *
     transition: all 0.2s ease;
     color: #2C1F04;
     text-shadow: -1px 1px 0 #5E453B;
-    
-
 }
-
 .welcometitle {
-    font-family: 'Montserrat';
-    
+    font-family:'Montserrat';
     text-align: center;
     color: white;
     padding: 10px;
-
-   
+    margin-top: 35px;
 }
-
 #logo:hover {
     -webkit-transform: scale3d(1.05, 1.05, 1.05);
     transform: scale3d(1.05, 1.05, 1.05);
@@ -80,39 +68,36 @@ a {
 }
 .navbar-collapse.collapse {
     border-bottom: 1px solid #202330;
-
-    background: -webkit-linear-gradient(rgb(174, 112, 29),#5A3812,rgb(40, 14, 9)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(rgb(174, 112, 29),#5A3812,rgb(40, 14, 9)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(rgb(174, 112, 29),#5A3812,rgb(40, 14, 9)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(rgb(174, 112, 29),#5A3812,rgb(40, 14, 9)); /* Standard syntax (must be last) */
-
+    background: -webkit-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
+    /* Standard syntax (must be last) */
 }
 .nav > li > a {
     font-size: 18px;
-    color: #2C1F04;
-text-shadow: 1px 0px 0 #5E453B;
+    color: #AB812C;
 }
-
 .nav > li > a >span {
-
     margin-right: 3px;
 }
 .nav > li > a:not(#logo):hover, .nav > li > a:not(#logo):focus {
     background-color: transparent;
-    text-shadow: -1px 0px 5px #C35A02;
-box-shadow: 0px 0px 22px rgba(145, 92, 32, 0.74) inset;
-color: #DBA43E;
-    
+    text-shadow: -1px 0px 5px #B0490A;
+box-shadow: 0px 0px 22px rgba(68, 36, 0, 0.74) inset;
+color: #E0C083;
 }
-
 .frame {
     max-width: 70%;
-margin: 0 auto;
-padding: 80px;
-background: url('../img/frame.png') center center no-repeat;
-margin-top: 30px;
- background-color: transparent;
-background-size: contain;
+    margin: 0 auto;
+    padding: 80px;
+    background: url('../img/frame.png') center center no-repeat;
+    margin-top: 30px;
+    background-color: transparent;
+    background-size: contain;
     background-position: fixed;
     padding-top:0;
 }
@@ -122,8 +107,62 @@ background-size: contain;
 .top {
     padding-top: 30px;
 }
+html, body {
+    height: 100%;
+}
 
+.content-frame {
+    background: #241C18;
+    padding: 2em;
+}
+.content-frame:before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    border: 8px solid #dec79b;
+    border-width: 17px 20px;
+    border-image: url("../img/frame2.png") 17 20 stretch;
+    z-index: -1;
+}
+select {
+    background: #422C1D;
+    color: #DABC86;
+    font-family: 'Montserrat';
+    border: 2px solid #80520B;
+    margin-bottom: 25px;
+    width: 85%;
+}
 
+.start-content {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.place-card {
+    height: 400px;
+    cursor: default;
+    background: url('../img/cards/cardback.png') center bottom no-repeat scroll;
 
-
-
+}
+.place-card img {
+    height: 400px;
+}
+/*.page-wrap {
+    min-height: 100%;
+    margin-bottom: -30px;
+}
+.page-wrap:after {
+    content:"";
+    display: block;
+}
+.footer, .page-wrap:after {
+    height: 30px;
+}
+.footer {
+    background: #1D1917;
+    border-top: 1px solid #243837;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}*/

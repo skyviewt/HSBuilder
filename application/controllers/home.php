@@ -17,24 +17,41 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+
 	public function index()
 	{	
 		//head info
-		$data['base_url'] = config_item('base_url');
-		$data['title'] = "HS Arena DeckBuilder";
-		$data['css_path'] = config_item('css_path');
-		$data['css_files'] = array('hover.css', 'main.css');
-		$data['img_path'] = config_item('img_path');
+		    
+    $data['base_url'] = config_item('base_url');
+    $data['title'] = "HS Arena DeckBuilder";
+    $data['css_path'] = config_item('css_path');
+    $data['js_path'] = config_item('js_path');
+    $data['css_files'] = array('hover.css', 'main.css');
+    $data['img_path'] = config_item('img_path');
 		
 		$this->load->view('common/head', $data);
 		$this->load->view('common/nav');
 		$this->load->view('index', $data);
+        
 	}
 
 	public function login()
 	{
 		echo 'to be implement';
 	}
+    public function selection()
+    {
+    $data['base_url'] = config_item('base_url');
+    $data['title'] = "HS Arena DeckBuilder";
+    $data['css_path'] = config_item('css_path');
+    $data['js_path'] = config_item('js_path');
+    $data['css_files'] = array('hover.css', 'main.css');
+    $data['img_path'] = config_item('img_path');
+        
+       $this->load->view('common/head', $data);
+		$this->load->view('common/nav');
+		$this->load->view('selection', $data);
+    }
 }
 
 /* End of file welcome.php */
