@@ -66,12 +66,23 @@
         </div>
     
     <div class="col-md-3" >
-        <div  id="deck">
-            {{count}}
-            <li ng-repeat="card1 in selectedCards">
-            <p>{{card1.name}}</p>
-        </li>
-            
+        <div  id="deckdiv">
+            <div id="deckcount">
+                <p>Deck: <span>{{count}}</span> / 30 cards</p>
+            </div>
+            <li ng-repeat="c in selectedCards">
+        
+        
+            <div class="deck screenshot">
+                <div class="pull-left deck-caption">
+                    <div class="deck-cost">{{c.manaCost}}</div>
+                    <div style="float:left;padding: 4px">{{c.name}}</div>
+                </div>
+                <div class="pull-right deck-pic" style="background: url('<?=$base_url.$img_path?>cards/{{c.name}}.png'); background-repeat: no-repeat; background-position: -85px -55px;background-size: 280%;">
+                    <div class="deck-fade"></div></div>
+                <div style="clear:both;"></div>
+            </div>
+                </li>
         </div>
         
     </div>
