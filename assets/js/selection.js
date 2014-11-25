@@ -28,14 +28,23 @@ var hsbuilder = angular.module('hsbuilder', []);
       {name:'Bloodmage Thalnos', class:null, type:'minion', manaCost: 1, rarity:'legendary', health:1, attack:1, keyEffectList:['deathRattle', 'spellDamage'], value:7 },
       {name:'Dark Iron Dwarf', class:null, type:'minion', manaCost: 4, rarity:'common', health:4, attack:4, keyEffectList:['batlecry'], value:6 },
     ];
+      
     $scope.count = 0;
     $scope.addCard = function (card) {
+        var isSelected = false;
         if($scope.count<30){
-                $scope.selectedCards.push(angular.copy(card));
-                $scope.count += 1;
-        }
-        //console.log(card);
-        //console.log(selectedCards);
-        //$(.'cardSelection').empty().load(window.location.href + '#cardSelection');
-    };
+            var arrayLength = $scope.selectedCards.length;
+            for (var i = 0; i < arrayLength; i++) {
+                if($scope.selectedCards[i].card.name === card.name){
+                    $scope.selectedCards[i].cardNum += 1;
+                   isSelected = true; 
+                }
+            }
+             if(isSelected === false){
+                $scope.selectedCards.push({card:angular.copy(card), cardNum: 1});
+             }
+        $scope.count += 1;
+        } 
+     };
+       
   });

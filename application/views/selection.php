@@ -71,17 +71,19 @@
                 <p>Deck: <span>{{count}}</span> / 30 cards</p>
             </div>
             <li ng-repeat="c in selectedCards">
-        
-        
+
+                
+               
             <div class="deck screenshot">
                 <div class="pull-left deck-caption">
-                    <div class="deck-cost">{{c.manaCost}}</div>
-                    <div style="float:left;padding: 4px">{{c.name}}</div>
+                    <div class="deck-cost">{{c.card.manaCost}}</div>
+                    <div style="float:left;padding: 4px">{{c.card.name}}&nbsp;x{{c.cardNum}}</div>
                 </div>
-                <div class="pull-right deck-pic" style="background: url('<?=$base_url.$img_path?>cards/{{c.name}}.png'); background-repeat: no-repeat; background-position: -85px -55px;background-size: 280%;">
+                <div class="pull-right deck-pic" style="background: url('<?=$base_url.$img_path?>cards/{{c.card.name}}.png'); background-repeat: no-repeat; background-position: -85px -55px;background-size: 280%;">
                     <div class="deck-fade"></div></div>
                 <div style="clear:both;"></div>
             </div>
+                
                 </li>
         </div>
         
