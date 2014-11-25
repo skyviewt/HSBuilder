@@ -68,6 +68,3 @@ class Home extends CI_Controller {
 		echo 'to be implement';
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
