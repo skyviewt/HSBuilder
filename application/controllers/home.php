@@ -54,6 +54,7 @@ class Home extends CI_Controller {
     $data['js_path'] = config_item('js_path');
     $data['css_files'] = array('hover.css', 'main.css');
     $data['img_path'] = config_item('img_path');
+    $data['class'] = $this->input->get('class', TRUE);
         
        $this->load->view('common/head', $data);
 		$this->load->view('common/nav');

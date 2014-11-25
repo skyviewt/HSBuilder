@@ -9,9 +9,11 @@
     keyEffectList:[taunt: ,divineShield:, windFurry:, charge:, deathRattle:, battleCry:, silence:, spellDamage:, enrage, overload:]
     value:
 }-->
+
   <script type="text/javascript" src="<?=$base_url.$js_path?>selection.js"></script>
-    <div class="row start-content" ng-app="hsbuilder">
-<div class="col-md-9 content-frame" ng-controller="selectionController">
+<div class="start-content">
+    <div class="row " ng-app="hsbuilder" ng-controller="selectionController">
+<div class="col-md-9 content-frame frame1" id="cardSelection">
 
     <div class="row">
         <div class="col-md-4 center">    
@@ -19,9 +21,15 @@
               <option value="">-- Choose card --</option>
               
             </select>
-            <div class="place-card">   
-                <a><img src="<?=$base_url.$img_path?>cards/{{myCard1.name}}.png"></a>
-            </div>
+           
+                   <div class="place-card" ng-show="angular.isUndefined(myCard1) || myCard1 == null">  
+                      <img src="<?=$base_url.$img_path?>cards/cardback.png">
+                  </div>
+             <a ng-click="addCard(myCard1)" ng-hide="angular.isUndefined(myCard1) || myCard1 == null">
+                  <div class="place-card cardclick" > 
+                   <img src="<?=$base_url.$img_path?>cards/{{myCard1.name}}.png">
+                </div>
+            </a>
         </div>
         
          <div class="col-md-4 center">    
@@ -29,28 +37,57 @@
               <option value="">-- Choose card --</option>
             </select>
              
-              <div class="place-card">   
-                <a><img src="<?=$base_url.$img_path?>cards/{{myCard2.name}}.png"></a>
-            </div>
+                  <div class="place-card" ng-show="angular.isUndefined(myCard2) || myCard2 == null">  
+                      <img src="<?=$base_url.$img_path?>cards/cardback.png">
+                  </div>
+              <a ng-click="addCard(myCard2)" ng-hide="angular.isUndefined(myCard2) || myCard2 == null">
+                  <div class="place-card cardclick" > 
+                   <img src="<?=$base_url.$img_path?>cards/{{myCard2.name}}.png">
+                </div>
+             </a>
         </div>
         
          <div class="col-md-4 center">    
             <select ng-model="myCard3" ng-options="card.name for card in cards">
               <option value="">-- Choose card --</option>
             </select>
-            <div class="place-card">   
-                <a><img src="<?=$base_url.$img_path?>cards/{{myCard3.name}}.png"></a>
-            </div>
-
+             
+                   <div class="place-card" ng-show="angular.isUndefined(myCard3) || myCard3 == null">  
+                      <img src="<?=$base_url.$img_path?>cards/cardback.png">
+                  </div>
+             <a ng-click="addCard(myCard3)" ng-hide="angular.isUndefined(myCard3) || myCard3 == null">
+                  <div class="place-card cardclick" > 
+                   <img src="<?=$base_url.$img_path?>cards/{{myCard3.name}}.png">
+                </div>
+               </a>
         </div>
     
     </div>
         </div>
-
-    <div class="col-md-3" id="deck">
+    
+    <div class="col-md-3" >
+        <div  id="deck">
+            {{count}}
+            <li ng-repeat="card1 in selectedCards">
+            <p>{{card1.name}}</p>
+        </li>
+            
+        </div>
         
     </div>
-    
-    </div>
+        </div>
+    <div class="stats row">
+        <div class="col-md-2">
+             <div class="class">
+                    <img src="<?=$base_url.$img_path.$class?>.jpg">
+                    <h3 class="classname"><?=$class?></h3>
+               </div>
+        </div>
+       
+        
+        </div>
+   
+  
+</div>
 </body>
 </html>

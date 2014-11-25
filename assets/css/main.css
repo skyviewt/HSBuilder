@@ -124,9 +124,15 @@ html, body {
     left: -8px;
     border: 8px solid #dec79b;
     border-width: 17px 20px;
-    border-image: url("../img/frame2.png") 17 20 stretch;
     z-index: -1;
 }
+.frame1:before {
+    border-image: url("../img/frame1.png") 17 20 stretch;
+}
+.frame2:before {
+    border-image: url("../img/frame2.png") 17 20 stretch;
+}
+
 select {
     background: #422C1D;
     color: #DABC86;
@@ -137,17 +143,53 @@ select {
 }
 
 .start-content {
-    margin-top: 30px;
-    margin-left: 30px;
+    margin-top: 2%;
+    margin-left: 4%;
 }
 .place-card {
-    height: 400px;
-    cursor: default;
-    background: url('../img/cards/cardback.png') center bottom no-repeat scroll;
+    height: 350px;
 
 }
 .place-card img {
-    height: 400px;
+    height: 350px;
+}
+.cardclick{
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    
+}
+.cardclick:hover {
+   -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.15, 1.15);
+    transform: translateZ(0) scale(1.15, 1.15);
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+ 
+}
+.stats {
+    padding-top: 3%;
+    padding-bottom:3%;
+}
+.class img {
+    border-radius: 50%;
+    border: 5px solid #6F4725;
+    width: 150px;
+     margin: 0 auto;
+    display: block;
+    
+}
+.classname {
+    font-family: 'Roboto';
+    font-weight: 300;
+    color: #7E7046;
+    margin-top: 5px;
+    text-align: center;
 }
 /*.page-wrap {
     min-height: 100%;
