@@ -10,13 +10,13 @@ class Card_model extends CI_Model {
     
     function get_all()
     {
-        $query = $this->db->get('cards');
+        $query = $this->db->get_where('cards', array('collectible' => 1));
         return $query->result();
     }
     
     function get_card($id)
     {
-        $query = $this->db->get_where('cards', array('id' => $id));
+        $query = $this->db->get_where('cards', array('id' => $id, 'collectible' => 1));
         return $query->result();
     }
     
@@ -58,7 +58,7 @@ class Card_model extends CI_Model {
             break;
         }
         
-        $query = $this->db->get_where('cards', array('player_class' => $class_id));
+        $query = $this->db->get_where('cards', array('player_class' => $class_id, 'collectible' => 1));
         return $query->result();
     }
 
