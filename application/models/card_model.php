@@ -2,25 +2,25 @@
 //model for retrieving cards. Note that this is a read-only model
 class Card_model extends CI_Model {
 
-    function __construct()
+    public function __construct()
     {
         // Call the Model constructor
         parent::__construct();
     }
     
-    function get_all()
+    public function get_all()
     {
         $query = $this->db->get_where('cards', array('collectible' => 1));
         return $query->result();
     }
     
-    function get_card($id)
+    public function get_card($id)
     {
         $query = $this->db->get_where('cards', array('id' => $id, 'collectible' => 1));
         return $query->result();
     }
     
-    function get_class($className)
+    public function get_class($className)
     {        
         $class_id = 0;
         
