@@ -1,11 +1,11 @@
 <!--{{mana0}}, {{mana1}}, {{mana2}}, {{mana3}}, {{mana4}}, {{mana5}}, {{mana6}}, {{mana7m}} 
 }-->
 
-
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="<?=$base_url.$js_path?>selection.js"></script>
 <div class="start-content">
     <div class="row " ng-app="hsbuilder" ng-controller="selectionController" ng-init = "setup('<?=$class?>')">
-<div class="col-md-9 content-frame frame1" id="cardSelection">
+<div class="col-md-9" id="cardSelection">
 
     <div class="row content-frame">
         <div class="col-md-4 center">    
@@ -72,7 +72,7 @@
                         
                      
                     </ul>
-            
+               
                     <bars data="1,2,3,4,5,6,7"></bars>
                 </div>
                 
