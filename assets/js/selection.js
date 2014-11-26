@@ -12,20 +12,39 @@ var hsbuilder = angular.module('hsbuilder', []);
  hsbuilder.controller('selectionController', function($scope, $http) {
     //just here to be stubs.
     $scope.selectedCards=[];
-    $scope.cards = [
-      {name:'Ragnaros the Firelord', class:'mage', type:'minion', cost: 8, rarity:'legendary', health:8, attack:8, value:8 },
-      {name:'Bloodmage Thalnos', class:null, type:'minion', cost: 1, rarity:'legendary', health:1, attack:1, keyEffectList:['deathRattle', 'spellDamage'], value:7 },
-      {name:'Dark Iron Dwarf', class:null, type:'minion', cost: 4, rarity:'common', health:4, attack:4, keyEffectList:['batlecry'], value:6 },
-    ];
-      /*$http.get("http://cobra-blast.codio.io:3000/api/cards/class/mage.json").
+
+    $scope.cards = [];
+    /*$scope.cards = [
+      {name:'Ragnaros the Firelord', class:'mage', type:'minion', manaCost: 8, rarity:'legendary', health:8, attack:8, value:8 },
+      {name:'Bloodmage Thalnos', class:null, type:'minion', manaCost: 1, rarity:'legendary', health:1, attack:1, keyEffectList:['deathRattle', 'spellDamage'], value:7 },
+      {name:'Dark Iron Dwarf', class:null, type:'minion', manaCost: 4, rarity:'common', health:4, attack:4, keyEffectList:['batlecry'], value:6 },
+    ];*/
+        
+    $scope.setup = function(playerClass){
+        
+      //get neutral cards
+      $http.get("/api/cards/class/neutral.json").
       success(function(data, status,headers,config) {
-          alert('success');
+         $scope.cards = $scope.cards.concat(data);
+         console.log(cards);
       }).
       error(function(data, status,headers,config) {
-          alert(data);
-          console.log(data);
+        //TODO: handle errors here!
+      });  
+        
+      //get class cards
+      $http.get("/api/cards/class/" + playerClass +".json").
+      success(function(data, status,headers,config) {
+         $scope.cards = $scope.cards.concat(data);
+         console.log(cards);
+      }).
+      error(function(data, status,headers,config) {
+        //TODO: handle errors here!
       });
-      */   
+        
+    } 
+        
+
     $scope.count = 0;
 
     $scope.addCard = function (card) {
@@ -39,11 +58,12 @@ var hsbuilder = angular.module('hsbuilder', []);
                     break;
                 }
             }
-             if(isSelected === false){
-                $scope.selectedCards.push({card:angular.copy(card), cardNum: 1});
-             }
-            
-        $scope.count += 1;
+
+            if(isSelected === false){
+               $scope.selectedCards.push({card:angular.copy(card), cardNum: 1});
+            }
+            $scope.count += 1;
+
         } 
      };
        
@@ -92,3 +112,4 @@ hsbuilder.directive('bars', function ($parse) {
          } 
       };
    });
+

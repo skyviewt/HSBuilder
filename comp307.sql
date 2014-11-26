@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 23, 2014 at 10:48 PM
+-- Generation Time: Nov 26, 2014 at 05:54 PM
 -- Server version: 5.6.15
 -- PHP Version: 5.5.15
 
@@ -712,7 +712,8 @@ CREATE TABLE IF NOT EXISTS `runs` (
   `wins` int(11) NOT NULL,
   `losses` int(11) NOT NULL DEFAULT '3',
   `rewards` varchar(255) NOT NULL,
-  PRIMARY KEY (`run_id`)
+  PRIMARY KEY (`run_id`),
+  KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -728,6 +729,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `runs`
+--
+ALTER TABLE `runs`
+  ADD CONSTRAINT `runs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

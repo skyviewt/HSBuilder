@@ -1,11 +1,11 @@
 <!--{{mana0}}, {{mana1}}, {{mana2}}, {{mana3}}, {{mana4}}, {{mana5}}, {{mana6}}, {{mana7m}} 
 }-->
 
-<script type="text/javascript" src="<?=$base_url.$js_path?>selection.js"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<div class="start-content container-fluid">
-    <div class="row " ng-app="hsbuilder" ng-controller="selectionController">
-<div class="col-md-9 " id="cardSelection">
+
+  <script type="text/javascript" src="<?=$base_url.$js_path?>selection.js"></script>
+<div class="start-content">
+    <div class="row " ng-app="hsbuilder" ng-controller="selectionController" ng-init = "setup('<?=$class?>')">
+<div class="col-md-9 content-frame frame1" id="cardSelection">
 
     <div class="row content-frame">
         <div class="col-md-4 center">    
@@ -13,7 +13,7 @@
               <option value="">-- Choose card --</option>
               
             </select>
-           
+                  
                    <div class="place-card" ng-show="angular.isUndefined(myCard1) || myCard1 == null">  
                       <img src="<?=$base_url.$img_path?>cards/cardback.png">
                   </div>
