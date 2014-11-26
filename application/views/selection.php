@@ -1,21 +1,13 @@
-<!--card {
-    name:
-    class:
-    type:(minion/spell/weapon)
-    manaCost:
-    rarity:
-    health:
-    attack:
-    keyEffectList:[taunt: ,divineShield:, windFurry:, charge:, deathRattle:, battleCry:, silence:, spellDamage:, enrage, overload:]
-    value:
+<!--{{mana0}}, {{mana1}}, {{mana2}}, {{mana3}}, {{mana4}}, {{mana5}}, {{mana6}}, {{mana7m}} 
 }-->
 
-  <script type="text/javascript" src="<?=$base_url.$js_path?>selection.js"></script>
-<div class="start-content">
+<script type="text/javascript" src="<?=$base_url.$js_path?>selection.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<div class="start-content container-fluid">
     <div class="row " ng-app="hsbuilder" ng-controller="selectionController">
-<div class="col-md-9 content-frame frame1" id="cardSelection">
+<div class="col-md-9 " id="cardSelection">
 
-    <div class="row">
+    <div class="row content-frame">
         <div class="col-md-4 center">    
             <select ng-model="myCard1" ng-options="card.name for card in cards">
               <option value="">-- Choose card --</option>
@@ -63,6 +55,30 @@
         </div>
     
     </div>
+    <div class="stats row">
+        <div class="col-md-3">
+             <div class="class">
+                    <img src="<?=$base_url.$img_path.$class?>.jpg">
+                    <h3 class="classname"><?=$class?></h3>
+               </div>
+             </div>
+            <div class="col-md-3">
+                <div class=" chartdiv">
+                    <ul ng-repeat="i in [0,1,2,3,4,5,6,7]">
+                        mana cost : {{ i }}
+                       
+                        
+                        
+                        
+                     
+                    </ul>
+            
+                    <bars data="1,2,3,4,5,6,7"></bars>
+                </div>
+                
+        </div>
+        
+        </div>
         </div>
     
     <div class="col-md-3" >
@@ -71,16 +87,14 @@
                 <p>Deck: <span>{{count}}</span> / 30 cards</p>
             </div>
             <li ng-repeat="c in selectedCards">
-
-                
-               
             <div class="deck screenshot">
                 <div class="pull-left deck-caption">
-                    <div class="deck-cost">{{c.card.manaCost}}</div>
+                    <div class="deck-cost">{{c.card.cost}}</div>
                     <div style="float:left;padding: 4px">{{c.card.name}}&nbsp;x{{c.cardNum}}</div>
                 </div>
                 <div class="pull-right deck-pic" style="background: url('<?=$base_url.$img_path?>cards/{{c.card.name}}.png'); background-repeat: no-repeat; background-position: -85px -55px;background-size: 280%;">
-                    <div class="deck-fade"></div></div>
+                    <div class="deck-fade"></div>
+                </div>
                 <div style="clear:both;"></div>
             </div>
                 
@@ -89,16 +103,7 @@
         
     </div>
         </div>
-    <div class="stats row">
-        <div class="col-md-2">
-             <div class="class">
-                    <img src="<?=$base_url.$img_path.$class?>.jpg">
-                    <h3 class="classname"><?=$class?></h3>
-               </div>
-        </div>
-       
-        
-        </div>
+    
    
   
 </div>

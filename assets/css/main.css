@@ -50,8 +50,8 @@ li, ul {
     font-family:'Montserrat';
     text-align: center;
     color: white;
-    padding: 10px;
-    margin-top: 35px;
+    padding-top: 3%;
+    /*margin-top: 35px;*/
 }
 #logo:hover {
     -webkit-transform: scale3d(1.05, 1.05, 1.05);
@@ -96,7 +96,7 @@ a {
 .frame {
     max-width: 70%;
     margin: 0 auto;
-    padding: 80px;
+    padding: 10%;
     background: url('../img/frame.png') center center no-repeat;
     margin-top: 30px;
     background-color: transparent;
@@ -116,24 +116,11 @@ html, body {
 .content-frame {
     background: #241C18;
     padding: 2em;
-}
-.content-frame:before {
-    content:"";
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    bottom: -8px;
-    left: -8px;
-    border: 8px solid #dec79b;
-    border-width: 17px 20px;
-    z-index: -1;
-}
-.frame1:before {
     border-image: url("../img/frame1.png") 17 20 stretch;
+    border-width: 17px 20px;
 }
-.frame2:before {
-    border-image: url("../img/frame2.png") 17 20 stretch;
-}
+
+
 select {
     background: #422C1D;
     color: #DABC86;
@@ -202,6 +189,7 @@ text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rg
 #deckdiv {
     width: 85%;
     margin: 0 auto;
+    padding-bottom: 1.5em;
 }
 .deck {
     background: #eeeeee;
@@ -271,20 +259,26 @@ text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rg
     color: #A87842;
 text-shadow: -1px 0px rgb(0, 0, 0), 0px 1px rgb(0, 0, 0), 1px 0px rgb(0, 0, 0), 0px -1px rgb(0, 0, 0);
 }
-/*.page-wrap {
-    min-height: 100%;
-    margin-bottom: -30px;
+.chart {
+   
 }
-.page-wrap:after {
+.chart div:before {
     content:"";
-    display: block;
+     background: url('../img/cost-bg.png') no-repeat scroll 0px -1px rgba(0, 0, 0, 0);
 }
-.footer, .page-wrap:after {
-    height: 30px;
+.chart div {
+  width: 0;
+  transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+    font-family: 'Roboto';
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 5px;
+  color: white;
+    background: -webkit-linear-gradient(#4424D8,rgb(169, 88, 182), rgb(0, 46, 108)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#4424D8,rgb(169, 88, 182), rgb(0, 46, 108)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#4424D8,rgb(169, 88, 182), rgb(0, 46, 108)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#4424D8,rgb(169, 88, 182), rgb(0, 46, 108)); /* Standard syntax (must be last) */
 }
-.footer {
-    background: #1D1917;
-    border-top: 1px solid #243837;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}*/
