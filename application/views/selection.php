@@ -19,7 +19,11 @@
                   </div>
              <a ng-click="addCard(myCard1)" ng-hide="angular.isUndefined(myCard1) || myCard1 == null">
                   <div class="place-card cardclick" > 
-                   <img src="<?=$base_url.$img_path?>cards/{{myCard1.name}}.png">
+                   <?php  if (!is_readable($base_url.$img_path.'cards/{{myCard1.name}}.png')) {
+                                echo '<img src="'.$base_url.$img_path.'cards/missing.png">';
+                      }else{
+                        echo '<img src="'.$base_url.$img_path.'cards/{{myCard1.name}}.png">';
+                      }?>
                 </div>
             </a>
         </div>
@@ -34,7 +38,11 @@
                   </div>
               <a ng-click="addCard(myCard2)" ng-hide="angular.isUndefined(myCard2) || myCard2 == null">
                   <div class="place-card cardclick" > 
-                   <img src="<?=$base_url.$img_path?>cards/{{myCard2.name}}.png">
+                   <?php  if (!is_readable($base_url.$img_path.'cards/{{myCard2.name}}.png')) {
+                                echo '<img src="'.$base_url.$img_path.'cards/missing.png">';
+                      }else{
+                        echo '<img src="'.$base_url.$img_path.'cards/{{myCard2.name}}.png">';
+                      }?>
                 </div>
              </a>
         </div>
@@ -48,8 +56,13 @@
                       <img src="<?=$base_url.$img_path?>cards/cardback.png">
                   </div>
              <a ng-click="addCard(myCard3)" ng-hide="angular.isUndefined(myCard3) || myCard3 == null">
-                  <div class="place-card cardclick" > 
-                   <img src="<?=$base_url.$img_path?>cards/{{myCard3.name}}.png">
+                  <div class="place-card cardclick" >
+                      <?php  if (!is_readable($base_url.$img_path.'cards/{{myCard3.name}}.png')) {
+                                echo '<img src="'.$base_url.$img_path.'cards/missing.png">';
+                      }else{
+                        echo '<img src="'.$base_url.$img_path.'cards/{{myCard3.name}}.png">';
+                      }?>
+                  
                 </div>
                </a>
         </div>
@@ -67,7 +80,7 @@
                     <ul ng-repeat="i in [0,1,2,3,4,5,6,7]">
                         mana cost : {{ i }}
                        
-                        
+                       
                         
                         
                      
