@@ -3,6 +3,19 @@
 require APPPATH.'/libraries/REST_Controller.php';
 class Api extends REST_Controller {
     
+    
+    public function __construct()
+    {
+        // Construct our parent class
+        parent::__construct();
+        
+        // Configure limits on our controller methods. Ensure
+        // you have created the 'limits' table and enabled 'limits'
+        // within application/config/rest.php
+        $this->methods['user_get']['limit'] = 500; //500 requests per hour per user/key
+        $this->methods['user_post']['limit'] = 100; //100 requests per hour per user/key
+    }
+    
     // /api/cards
     public function cards_get()
     {
@@ -36,8 +49,15 @@ class Api extends REST_Controller {
         
     }
     
+    //POST /api/users/
     public function users_post()
     {
+        $this->load->model('User_model', 'user', TRUE);
+        
+        $this->user->setParam($this->post("username"), $this->post("password"), $this->post("email"));
+        $this->user->create_user();
+        
+        $this->response(array('success' => "User Created!"), 200);
         
     }
     
