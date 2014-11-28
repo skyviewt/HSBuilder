@@ -1,19 +1,20 @@
-<!--{{mana0}}, {{mana1}}, {{mana2}}, {{mana3}}, {{mana4}}, {{mana5}}, {{mana6}}, {{mana7m}} 
-}-->
 
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  <script type="text/javascript" src="<?=$base_url.$js_path?>selection.js"></script>
+ 
+<script type="text/javascript" src="<?=$base_url.$js_path?>acute.select.js"></script>
+ <script type="text/javascript" src="<?=$base_url.$js_path?>selection.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?=$base_url.$css_path?>acute.select.css" />
+
 <div class="start-content">
     <div class="row " ng-app="hsbuilder" ng-controller="selectionController" ng-init = "setup('<?=$class?>')">
 <div class="col-md-9" id="cardSelection">
 
     <div class="row content-frame">
-        <div class="col-md-4 center">    
-            <select ng-model="myCard1" ng-options="card.name for card in cards">
-              <option value="">-- Choose card --</option>
-              
+        <div class="col-md-4 center"> 
+           <!--<ac-select ac-model="myCard1" ac-options="card.name for card in cards"></ac-select>-->
+            
+              <select ng-model="myCard1" ng-options="card.name for card in cards">
+                <option value="">-- Choose card --</option>
             </select>
-                  
                    <div class="place-card" ng-show="angular.isUndefined(myCard1) || myCard1 == null">  
                       <img src="<?=$base_url.$img_path?>cards/cardback.png">
                   </div>
@@ -22,7 +23,7 @@
                    <?php  if (!is_readable($base_url.$img_path.'cards/{{myCard1.name}}.png')) {
                                 echo '<img src="'.$base_url.$img_path.'cards/missing.png">';
                       }else{
-                        echo '<img src="'.$base_url.$img_path.'cards/{{myCard1.name}}.png">';
+                        echo '<img ng-src="'.$base_url.$img_path.'cards/{{myCard1.name}}.png">';
                       }?>
                 </div>
             </a>
@@ -41,7 +42,7 @@
                    <?php  if (!is_readable($base_url.$img_path.'cards/{{myCard2.name}}.png')) {
                                 echo '<img src="'.$base_url.$img_path.'cards/missing.png">';
                       }else{
-                        echo '<img src="'.$base_url.$img_path.'cards/{{myCard2.name}}.png">';
+                        echo '<img ng-src="'.$base_url.$img_path.'cards/{{myCard2.name}}.png">';
                       }?>
                 </div>
              </a>
@@ -60,7 +61,7 @@
                       <?php  if (!is_readable($base_url.$img_path.'cards/{{myCard3.name}}.png')) {
                                 echo '<img src="'.$base_url.$img_path.'cards/missing.png">';
                       }else{
-                        echo '<img src="'.$base_url.$img_path.'cards/{{myCard3.name}}.png">';
+                        echo '<img ng-src="'.$base_url.$img_path.'cards/{{myCard3.name}}.png">';
                       }?>
                   
                 </div>
@@ -75,24 +76,38 @@
                     <h3 class="classname"><?=$class?></h3>
                </div>
              </div>
-            <div class="col-md-3">
-                <div class=" chartdiv">
-                    <ul ng-repeat="i in [0,1,2,3,4,5,6,7]">
-                        mana cost : {{ i }}
-                       
-                       
+            <div class="col-md-4">
+                <div class=" chartdiv row">
+                    <li ng-repeat="i in [0,1,2,3,4,5,6,7]">
+                   
+                    <div class="bar pull-left col-md-1">
+                            <div class="barfill" style="height:{{(manaCount[i.toString()] / 30) * 132}}px">                 
+                                     <p ng-if="manaCount[i.toString()]!==0">{{manaCount[i.toString()]}}</p>
+  
+                            </div> 
                         
+                        </div> 
                         
-                     
-                    </ul>
-               
-                    <bars data="1,2,3,4,5,6,7"></bars>
+                         </li>
+             
+                </div>
+                <div class="row">
+                    <li ng-repeat="j in [0,1,2,3,4,5,6,7]">
+                   
+                    <div class="manaCost pull-left col-md-1">
+                        <p ng-if="j<7">{{j}}</p>
+                        <p ng-if="j>=7">{{j}}+</p>
+                        </div>
+                        
+                         </li>
+             
                 </div>
                 
-        </div>
+                
+            </div>
         
         </div>
-        </div>
+    </div>
     
     <div class="col-md-3" >
         <div  id="deckdiv">

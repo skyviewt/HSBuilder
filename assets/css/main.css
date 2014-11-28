@@ -119,8 +119,6 @@ html, body {
     border-image: url("../img/frame1.png") 17 20 stretch;
     border-width: 17px 20px;
 }
-
-
 select {
     background: #422C1D;
     color: #DABC86;
@@ -168,14 +166,12 @@ select {
     display: block;
 }
 .classname {
-
-  
     margin-top: 5px;
     text-align: center;
-    font-family: 'Montserrat';
-color: #1B1105;
-font-weight: 800;
-text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rgb(137, 119, 103), 0px -1px rgb(137, 119, 103);
+    font-family:'Montserrat';
+    color: #1B1105;
+    font-weight: 800;
+    text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rgb(137, 119, 103), 0px -1px rgb(137, 119, 103);
 }
 .deck:hover:before {
     content:'';
@@ -249,36 +245,68 @@ text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rg
 }
 #deckcount > p {
     padding: 20px;
-text-align: center;
-font-family: 'Montserrat';
-color: #1B1105;
-font-weight: 800;
-text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rgb(137, 119, 103), 0px -1px rgb(137, 119, 103);
+    text-align: center;
+    font-family:'Montserrat';
+    color: #1B1105;
+    font-weight: 800;
+    text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rgb(137, 119, 103), 0px -1px rgb(137, 119, 103);
 }
 #deckcount>p >span {
     color: #A87842;
+    text-shadow: -1px 0px rgb(0, 0, 0), 0px 1px rgb(0, 0, 0), 1px 0px rgb(0, 0, 0), 0px -1px rgb(0, 0, 0);
+}
+
+.bar {
+    min-height: 140px;
+    padding: 3px;
+    margin: 5px;
+    width: 20px;
+    border-radius: 2px;
+    border: 1px solid #8C7396;
+    margin-left: 10px;
+    display: inline;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.barfill {
+    transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    margin: 0;
+    padding: 0;
+    background: -webkit-linear-gradient(left, #4424D8, rgb(169, 88, 182), rgb(0, 46, 108));
+    background: -o-linear-gradient(right, #4424D8, rgb(169, 88, 182), rgb(0, 46, 108));
+    background: -moz-linear-gradient(right, #4424D8, rgb(169, 88, 182), rgb(0, 46, 108));
+    background: linear-gradient(to right, #4424D8, rgb(169, 88, 182), rgb(0, 46, 108));
+}
+.barfill > p {
+     -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    font-family: 'Montserrat';
+
+text-align: center;
+font-size: 12px;
+padding-bottom: 140px;
+color: #8C7396;
+    
+}
+.manaCost {
+   color: rgb(255, 255, 255);
+font-weight: bold;
 text-shadow: -1px 0px rgb(0, 0, 0), 0px 1px rgb(0, 0, 0), 1px 0px rgb(0, 0, 0), 0px -1px rgb(0, 0, 0);
+font-size: 14px;
+padding: 4px;
+margin: 3.5px;
+width: 28.5px;
+background: url('../img/cost-bg.png') no-repeat scroll;
+text-align: center;
 }
-.chart {
-   
+    
 }
-.chart div:before {
-    content:"";
-     background: url('../img/cost-bg.png') no-repeat scroll 0px -1px rgba(0, 0, 0, 0);
-}
-.chart div {
-  width: 0;
-  transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  -webkit-transition: all 0.5s ease-out;
-    font-family: 'Roboto';
-  background-color: steelblue;
-  text-align: right;
-  padding: 3px;
-  margin: 5px;
-  color: white;
-    background: -webkit-linear-gradient(#4424D8,rgb(169, 88, 182), rgb(0, 46, 108)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#4424D8,rgb(169, 88, 182), rgb(0, 46, 108)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#4424D8,rgb(169, 88, 182), rgb(0, 46, 108)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#4424D8,rgb(169, 88, 182), rgb(0, 46, 108)); /* Standard syntax (must be last) */
-}
+

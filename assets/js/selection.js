@@ -14,11 +14,6 @@ var hsbuilder = angular.module('hsbuilder', []);
     $scope.selectedCards=[];
 
     $scope.cards = [];
-    /*$scope.cards = [
-      {name:'Ragnaros the Firelord', class:'mage', type:'minion', manaCost: 8, rarity:'legendary', health:8, attack:8, value:8 },
-      {name:'Bloodmage Thalnos', class:null, type:'minion', manaCost: 1, rarity:'legendary', health:1, attack:1, keyEffectList:['deathRattle', 'spellDamage'], value:7 },
-      {name:'Dark Iron Dwarf', class:null, type:'minion', manaCost: 4, rarity:'common', health:4, attack:4, keyEffectList:['batlecry'], value:6 },
-    ];*/
         
     $scope.setup = function(playerClass){
         
@@ -26,7 +21,7 @@ var hsbuilder = angular.module('hsbuilder', []);
       $http.get("/api/cards/class/neutral.json").
       success(function(data, status,headers,config) {
          $scope.cards = $scope.cards.concat(data);
-         console.log(cards);
+        
       }).
       error(function(data, status,headers,config) {
         //TODO: handle errors here!
@@ -36,7 +31,7 @@ var hsbuilder = angular.module('hsbuilder', []);
       $http.get("/api/cards/class/" + playerClass +".json").
       success(function(data, status,headers,config) {
          $scope.cards = $scope.cards.concat(data);
-         console.log(cards);
+        
       }).
       error(function(data, status,headers,config) {
         //TODO: handle errors here!
@@ -46,10 +41,18 @@ var hsbuilder = angular.module('hsbuilder', []);
         
 
     $scope.count = 0;
-
+     $scope.manaCount = {'0':0,'1':0,'2':0,'3':0, '4':0,'5':0, '6':0, '7':0};
     $scope.addCard = function (card) {
         var isSelected = false;
         if($scope.count<30){
+            if (card.cost<7){
+                $scope.manaCount[card.cost.toString()] +=1;
+            } 
+            else if (card.cost>=7) {
+                $scope.manaCount['7'] +=1;
+            }
+          
+            console.log($scope.manaCount);
             var arrayLength = $scope.selectedCards.length;
             for (var i = 0; i < arrayLength; i++) {
                 if($scope.selectedCards[i].card.name === card.name){
@@ -64,52 +67,10 @@ var hsbuilder = angular.module('hsbuilder', []);
             }
             $scope.count += 1;
 
-        } 
+        }
+       
      };
        
   });
-hsbuilder.filter('property', property);
 
-function property(){
-    function parseString(input){
-        return input.split(".");
-    }
- 
-    function getValue(element, propertyArray){
-        var value = element;
- 
-        _.forEach(propertyArray, function(property){
-            value = value[property];
-        });
- 
-        return value;
-    }
- 
-    return function (array, propertyString, target){
-        var properties = parseString(propertyString);
- 
-        return _.filter(array, function(item){
-            return getValue(item, properties) == target;
-        });
-    }
-}
-
-hsbuilder.directive('bars', function ($parse) {
-      return {
-         restrict: 'E',
-         replace: true,
-         template: '<div id="chart"></div>',
-         link: function (scope, element, attrs) {
-           var data = attrs.data.split(','),
-           chart = d3.select('#chart')
-             .append("div").attr("class", "chart")
-             .selectAll('div')
-             .data(data).enter()
-             .append("div")
-             .transition().ease("elastic")
-             .style("width", function(d) { return d + "%"; })
-             .text(function(d) { return d + "%"; });
-         } 
-      };
-   });
 
