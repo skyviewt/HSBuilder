@@ -2,10 +2,10 @@
 //model for retrieving cards. Note that this is a read-only model
 class User_model extends CI_Model {
     
-    private user_id = "";
-    private username = "";
-    private password = "";
-    private email = "";
+    private $user_id = "";
+    private $username = "";
+    private $password = "";
+    private $email = "";
 
     public function __construct()
     {
@@ -13,12 +13,11 @@ class User_model extends CI_Model {
         parent::__construct();
     }
     
-    public function setParam(user_id, username, password, email)
+    public function setParam($username, $password, $email)
     {
-        $this->user_id = user_id;
-        $this->username = username;
-        $this->password = password;
-        $this->email = email;
+        $this->username = $username;
+        $this->password = $password;
+        $this->email = $email;
     }
     
     public function get_all()
@@ -37,7 +36,11 @@ class User_model extends CI_Model {
     {       
         try 
         {
-            $this->db->insert('users', $this);
+            $this->db->insert('users', array(
+                                        'username' => $this->username,
+                                        'password' => $this->password,
+                                        'email' => $this->email
+                                       ));
         } 
         catch (Exception $e) 
         {
