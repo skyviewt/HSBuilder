@@ -20,11 +20,7 @@
                   </div>
              <a ng-click="addCard(myCard1)" ng-hide="angular.isUndefined(myCard1) || myCard1 == null">
                   <div class="place-card cardclick" > 
-                   <?php  if (!is_readable($base_url.$img_path.'cards/{{myCard1.name}}.png')) {
-                                echo '<img src="'.$base_url.$img_path.'cards/missing.png">';
-                      }else{
-                        echo '<img ng-src="'.$base_url.$img_path.'cards/{{myCard1.name}}.png">';
-                      }?>
+                      <img ng-src="<?=$base_url.$img_path?>cards/{{myCard1.name}}.png" err-src="<?=$base_url.$img_path?>cards/missing.png"/>
                 </div>
             </a>
         </div>
@@ -39,11 +35,7 @@
                   </div>
               <a ng-click="addCard(myCard2)" ng-hide="angular.isUndefined(myCard2) || myCard2 == null">
                   <div class="place-card cardclick" > 
-                   <?php  if (!is_readable($base_url.$img_path.'cards/{{myCard2.name}}.png')) {
-                                echo '<img src="'.$base_url.$img_path.'cards/missing.png">';
-                      }else{
-                        echo '<img ng-src="'.$base_url.$img_path.'cards/{{myCard2.name}}.png">';
-                      }?>
+                    <img ng-src="<?=$base_url.$img_path?>cards/{{myCard2.name}}.png" err-src="<?=$base_url.$img_path?>cards/missing.png"/>
                 </div>
              </a>
         </div>
@@ -58,12 +50,7 @@
                   </div>
              <a ng-click="addCard(myCard3)" ng-hide="angular.isUndefined(myCard3) || myCard3 == null">
                   <div class="place-card cardclick" >
-                      <?php  if (!is_readable($base_url.$img_path.'cards/{{myCard3.name}}.png')) {
-                                echo '<img src="'.$base_url.$img_path.'cards/missing.png">';
-                      }else{
-                        echo '<img ng-src="'.$base_url.$img_path.'cards/{{myCard3.name}}.png">';
-                      }?>
-                  
+                      <img ng-src="<?=$base_url.$img_path?>cards/{{myCard3.name}}.png" err-src="<?=$base_url.$img_path?>cards/missing.png"/>
                 </div>
                </a>
         </div>

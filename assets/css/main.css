@@ -72,13 +72,13 @@ a {
 .navbar-collapse.collapse {
     border-bottom: 1px solid #202330;
     background: -webkit-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
-    /* For Safari 5.1 to 6.0 */
+    
     background: -o-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
-    /* For Opera 11.1 to 12.0 */
+    
     background: -moz-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
-    /* For Firefox 3.6 to 15 */
+   
     background: linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
-    /* Standard syntax (must be last) */
+    
 }
 .nav > li > a {
     font-size: 18px;
@@ -187,6 +187,7 @@ select {
     margin: 0 auto;
     padding-bottom: 1.5em;
 }
+
 .deck {
     background: #eeeeee;
     border: 1px solid #6E5233;
@@ -199,6 +200,7 @@ select {
     border-bottom-right-radius: 6px;
     border-top-right-radius: 6px;
     cursor: pointer;
+    
 }
 .deck-caption {
     padding: 0px;
@@ -262,7 +264,7 @@ select {
     margin: 5px;
     width: 20px;
     border-radius: 2px;
-    border: 1px solid #8C7396;
+    border: 2px solid #544351;
     margin-left: 10px;
     display: inline;
     -webkit-transform: rotate(180deg);
@@ -270,6 +272,7 @@ select {
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
+    
 }
 .barfill {
     transition: all 0.5s ease-in-out;
@@ -293,7 +296,7 @@ select {
 text-align: center;
 font-size: 12px;
 padding-bottom: 140px;
-color: #8C7396;
+color: #544351;
     
 }
 .manaCost {
@@ -306,7 +309,8 @@ margin: 3.5px;
 width: 28.5px;
 background: url('../img/cost-bg.png') no-repeat scroll;
 text-align: center;
-}
     
 }
+    
+
 
