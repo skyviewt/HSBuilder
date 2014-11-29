@@ -264,7 +264,7 @@ select {
     margin: 5px;
     width: 20px;
     border-radius: 2px;
-    border: 2px solid #544351;
+    border: 2px solid #27272D;
     margin-left: 10px;
     display: inline;
     -webkit-transform: rotate(180deg);
@@ -296,7 +296,7 @@ select {
 text-align: center;
 font-size: 12px;
 padding-bottom: 140px;
-color: #544351;
+color: #27272D;
     
 }
 .manaCost {

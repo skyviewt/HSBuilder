@@ -10,11 +10,11 @@
 
     <div class="row content-frame">
         <div class="col-md-4 center"> 
-           <!--<ac-select ac-model="myCard1" ac-options="card.name for card in cards"></ac-select>-->
+           <ac-select ac-model="myCard1" ac-options="card.name for card in cards"></ac-select>
             
-              <select ng-model="myCard1" ng-options="card.name for card in cards">
+              <!--<select ng-model="myCard1" ng-options="card.name for card in cards">
                 <option value="">-- Choose card --</option>
-            </select>
+            </select>-->
                    <div class="place-card" ng-show="angular.isUndefined(myCard1) || myCard1 == null">  
                       <img src="<?=$base_url.$img_path?>cards/cardback.png">
                   </div>

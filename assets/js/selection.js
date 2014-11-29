@@ -7,7 +7,7 @@
 */
 
 
-var hsbuilder = angular.module('hsbuilder', []);
+var hsbuilder = angular.module('hsbuilder', ['acute.select']);
 
  hsbuilder.controller('selectionController', function($scope, $http) {
     //just here to be stubs.
