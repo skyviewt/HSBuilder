@@ -10,11 +10,11 @@
 
     <div class="row content-frame">
         <div class="col-md-4 center"> 
-           <ac-select ac-model="myCard1" ac-options="card.name for card in cards"></ac-select>
+           <!--<ac-select ac-model="myCard1" ac-options="card.name for card in cards"></ac-select>-->
             
-              <!--<select ng-model="myCard1" ng-options="card.name for card in cards">
+              <select ng-model="myCard1" ng-options="card.name for card in cards">
                 <option value="">-- Choose card --</option>
-            </select>-->
+            </select>
                    <div class="place-card" ng-show="angular.isUndefined(myCard1) || myCard1 == null">  
                       <img src="<?=$base_url.$img_path?>cards/cardback.png">
                   </div>
@@ -107,7 +107,7 @@
                     <div class="deck-cost">{{c.card.cost}}</div>
                     <div style="float:left;padding: 4px">{{c.card.name}}&nbsp;x{{c.cardNum}}</div>
                 </div>
-                <div class="pull-right deck-pic" style="background: url('<?=$base_url.$img_path?>cards/{{c.card.name}}.png'); background-repeat: no-repeat; background-position: -85px -55px;background-size: 280%;">
+                <div class="pull-right deck-pic" style="background: url('{{c.card.image}}'); background-repeat: no-repeat; background-position: -80px -80px;background-size: 280%;">
                     <div class="deck-fade"></div>
                 </div>
                 <div style="clear:both;"></div>
