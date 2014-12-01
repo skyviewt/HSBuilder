@@ -55,6 +55,7 @@ class Home extends CI_Controller {
     $data['css_files'] = array('hover.css', 'main.css');
     $data['img_path'] = config_item('img_path');
     $data['class'] = $this->input->get('class', TRUE);
+    $data['selectedCards'] = $this->input->get('cards', TRUE);
         
        $this->load->view('common/head', $data);
 		$this->load->view('common/nav');
