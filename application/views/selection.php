@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="<?=$base_url.$css_path?>acute.select.css" />
 
 <div class="start-content">
-    <div class="row " ng-app="hsbuilder" ng-controller="selectionController" ng-init = "setup('<?=$class?>')">
+    <div class="row " ng-app="hsbuilder" ng-controller="selectionController" ng-init = "setup('<?=$class?>', '<?=$selectedCards?>')">
 <div class="col-md-9" id="cardSelection">
 
     <div class="row content-frame">
