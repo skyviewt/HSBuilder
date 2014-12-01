@@ -118,6 +118,3 @@ hsbuilder.directive('errSrc', function() {
     }
   }
 });
-
-
-
