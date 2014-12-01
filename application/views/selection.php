@@ -92,6 +92,12 @@
                 
                 
             </div>
+        <div class="col-md-5">
+            <!--<ul id="effectlist" class="nav nav-pills" role="tablist">
+              
+              <li role="presentation"><a href="#">Messages <span class="badge">3</span></a></li>
+            </ul>-->
+        </div>
         
         </div>
     </div>

@@ -42,6 +42,7 @@ var hsbuilder = angular.module('hsbuilder', ['acute.select']);
 
     $scope.count = 0;
      $scope.manaCount = {'0':0,'1':0,'2':0,'3':0, '4':0,'5':0, '6':0, '7':0};
+     $scope.effects = {'battlecry':0,'taunt':0,'charge':0, 'enrage':0, 'overload':0, 'stealth':0, 'windfury':0, 'spell damage':0};
     $scope.addCard = function (card) {
         var isSelected = false;
         if($scope.count<30){
@@ -51,8 +52,8 @@ var hsbuilder = angular.module('hsbuilder', ['acute.select']);
             else if (card.cost>=7) {
                 $scope.manaCount['7'] +=1;
             }
-          
-            console.log($scope.manaCount);
+            
+            /*console.log($scope.manaCount);*/
             var arrayLength = $scope.selectedCards.length;
             for (var i = 0; i < arrayLength; i++) {
                 if($scope.selectedCards[i].card.name === card.name){
