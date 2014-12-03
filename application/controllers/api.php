@@ -54,6 +54,15 @@ class Api extends REST_Controller {
     {
         $this->load->model('User_model', 'user', TRUE);
         
+        if(!ctype_alnum($this->post("username")))
+        {
+           $this->response(array('error' => "username must be alpha numeric"), 400);
+        }
+        else if(strlen($this->post("")) < 4)
+        {
+           $this->response(array('error' => "password must be at least 4 characters"), 400);
+        }
+        
         $this->user->setParam($this->post("username"), $this->post("password"), $this->post("email"));
         $this->user->create_user();
         
@@ -61,6 +70,7 @@ class Api extends REST_Controller {
         
     }
     
+    //to be implemented in future
     public function users_put()
     {
         
