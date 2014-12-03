@@ -7,9 +7,9 @@
 */
 
 
-var hsbuilder = angular.module('hsbuilder', ['acute.select']);
+var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
 
- hsbuilder.controller('selectionController', function($scope, $http) {
+ hsbuilder.controller('selectionController', function($scope, $http, $location) {
     var pushCardsStates = function(){
         var selectedCardsString = $scope.selectedCards.map(function(c){
             var temp = [];
@@ -28,6 +28,11 @@ var hsbuilder = angular.module('hsbuilder', ['acute.select']);
                                  );
         
     };
+     
+    $scope.card1 = {}; 
+    $scope.card2 = {};
+    $scope.card3 = {};
+     
     $scope.selectedCards=[];
 
     $scope.cards = [];
@@ -47,7 +52,7 @@ var hsbuilder = angular.module('hsbuilder', ['acute.select']);
         };
         
         selectedCards = selectedCards.split(',');
-        console.log("mycards", selectedCards);
+        //console.log("mycards", selectedCards);
 
         //get neutral cards
         $http.get("/api/cards/class/neutral.json").
@@ -70,13 +75,12 @@ var hsbuilder = angular.module('hsbuilder', ['acute.select']);
         });
         
     }; 
-        
 
     $scope.count = 0;
-     $scope.manaCount = {'0':0,'1':0,'2':0,'3':0, '4':0,'5':0, '6':0, '7':0};
-     $scope.effects = {'battlecry':0,'taunt':0,'charge':0, 'enrage':0, 'overload':0, 'stealth':0, 'windfury':0, 'spell damage':0};
+    $scope.manaCount = {'0':0,'1':0,'2':0,'3':0, '4':0,'5':0, '6':0, '7':0};
+    $scope.effects = {'battlecry':0,'taunt':0, 'deathrattle':0, 'charge':0, 'enrage':0, 'overload':0, 'stealth':0, 'windfury':0, 'spell damage':0};
     $scope.addCard = function (card) {
-        console.log(card);
+        //console.log(card);
         var isSelected = false;
         if($scope.count<30){
             if (card.cost<7){
@@ -86,6 +90,15 @@ var hsbuilder = angular.module('hsbuilder', ['acute.select']);
                 $scope.manaCount['7'] +=1;
             }
             
+            for (var property in $scope.effects) {
+                if ($scope.effects.hasOwnProperty(property)) {
+                    console.log(property);
+                    if(card.text.toLowerCase().indexOf(property) > -1){
+                       $scope.effects[property] +=1;
+                    }
+                        
+                }
+            }
             /*console.log($scope.manaCount);*/
             var arrayLength = $scope.selectedCards.length;
             for (var i = 0; i < arrayLength; i++) {
@@ -107,14 +120,3 @@ var hsbuilder = angular.module('hsbuilder', ['acute.select']);
      };
        
   });
-hsbuilder.directive('errSrc', function() {
-  return {
-    link: function(scope, element, attrs) {
-      element.bind('error', function() {
-        if (attrs.src != attrs.errSrc) {
-          attrs.$set('src', attrs.errSrc);
-        }
-      });
-    }
-  }
-});

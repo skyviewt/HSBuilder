@@ -82,7 +82,7 @@ a {
 }
 .nav > li > a {
     font-size: 18px;
-    color: #AB812C;
+    color: #B09B72;
 }
 .nav > li > a >span {
     margin-right: 3px;
@@ -119,12 +119,45 @@ html, body {
     border-image: url("../img/frame1.png") 17 20 stretch;
     border-width: 17px 20px;
 }
-select {
-    background: #422C1D;
+.text-muted {
+    color: #aaa2a5 !important;
+}
+.dropdown-menu {
+    background-color: #342E2A;
+}
+.no-padding {
+    padding: 0;
+}
+.ui-select {
+   
+    font-family:'Montserrat';
+    margin: 0 auto;
+    z-index: 10;
+    
+}
+.ui-select span:hover {
+    color: white;
+}
+.ui-select > button {
+      background: #422C1D;
     color: #DABC86;
     font-family:'Montserrat';
     border: 2px solid #80520B;
-    width: 85%;
+    border-radius: 2px;
+}
+.ui-select-bootstrap .ui-select-choices-row>a {
+
+    color: #b5afb5 !important;
+}
+ui-select-bootstrap .ui-select-choices-row>a:hover {
+
+    color: white !important;
+}
+.ui-select-bootstrap .ui-select-choices-row.active>a {
+    background-color: #735FAD !important;
+}
+.ui-select-bootstrap > .ui-select-choices {
+max-height: 350px !important; 
 }
 .start-content {
     margin-top: 2%;
@@ -152,6 +185,9 @@ select {
     -ms-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
+}
+.cardback {
+    margin-left: -13px;
 }
 .stats {
     padding-top: 3%;
@@ -226,7 +262,6 @@ select {
     width: 85px;
     height: 24px;
     background-repeat: no-repeat;
-    background-position: -50px -75px;
 }
 .deck-fade {
     background: -moz-linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(255, 255, 255, 0) 100%);
@@ -242,7 +277,6 @@ select {
 #deckcount {
     background: url('../img/bar.png') center center no-repeat;
     background-size: 100% 100%;
-    margin-top: -10px;
 }
 #deckcount > p {
     padding: 20px;
@@ -263,7 +297,7 @@ select {
     margin: 5px;
     width: 20px;
     border-radius: 2px;
-    border: 2px solid #27272D;
+    border: 2px solid rgba(67, 67, 76, 0.78);
     margin-left: 10px;
     display: inline;
     -webkit-transform: rotate(180deg);
@@ -295,8 +329,24 @@ select {
 text-align: center;
 font-size: 12px;
 padding-bottom: 140px;
-color: #27272D;
+color: #A59AB6;
     
+}
+#effectcol h4 {
+    margin-top: 0;
+padding-left: 0;
+font-family: 'Roboto';
+text-align: center;
+color: #1B1105;
+font-weight: 800;
+text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rgb(137, 119, 103), 0px -1px rgb(137, 119, 103);
+}
+#effectcol p {
+    font-family: 'Montserrat';
+}
+.badge {
+    font-family: 'Roboto';
+    background-color: #735FAD;
 }
 .manaCost {
    color: rgb(255, 255, 255);
