@@ -20,6 +20,12 @@ class Card_model extends CI_Model {
         return $query->result();
     }
     
+    public function get_cardValue($value_id)
+    {
+        $query = $this->db->get_where('vals', array('value_id' => $value_id));
+        return $query->result();
+    }
+    
     public function get_class($className)
     {        
         $class_id = 0;
