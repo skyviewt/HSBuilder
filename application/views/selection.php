@@ -81,7 +81,7 @@
                     <li ng-repeat="i in [0,1,2,3,4,5,6,7]">
                    
                     <div class="bar pull-left col-md-1">
-                            <div class="barfill" style="height:{{(manaCount[i.toString()] / 30) * 132}}px">                 
+                            <div class="barfill" style="height:{{ manaCount[i.toString()] / manaMax  * 132 }}px">                 
                                      <p ng-if="manaCount[i.toString()]!==0">{{manaCount[i.toString()]}}</p>
   
                             </div> 
