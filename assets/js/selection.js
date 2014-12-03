@@ -92,8 +92,8 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
             
             for (var property in $scope.effects) {
                 if ($scope.effects.hasOwnProperty(property)) {
-                    console.log(property);
-                    if(card.text.toLowerCase().indexOf(property) > -1){
+              
+                    if(card.text.toLowerCase().indexOf('<b>'+property) == 0 ){
                        $scope.effects[property] +=1;
                     }
                         
