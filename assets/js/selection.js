@@ -95,6 +95,10 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
                 $scope.manaCount['7'] +=1;
             }
             
+            $scope.manaMax = _.reduce($scope.manaCount, function(memo, value){
+                return memo + value;
+            }, 0);
+            
             for (var property in $scope.effects) {
                 if ($scope.effects.hasOwnProperty(property)) {
               
@@ -104,7 +108,6 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
                         
                 }
             }
-            /*console.log($scope.manaCount);*/
             var arrayLength = $scope.selectedCards.length;
             for (var i = 0; i < arrayLength; i++) {
                 if($scope.selectedCards[i].card.name === card.name){
