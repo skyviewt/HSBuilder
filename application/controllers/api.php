@@ -44,6 +44,21 @@ class Api extends REST_Controller {
         }     
     }
     
+    // /api/values/id/{value_id}
+    public function values_get()
+    {
+        $this->load->model('Card_model', 'card', TRUE);
+        
+        if($this->get('id'))
+        {
+            $this->response($this->card->get_cardValue($this->get('id')), 200);
+        }
+        else
+        {
+            $this->response(array('error' => 'invalid parameter has been passed. The accepted parameters is id"'), 400);
+        }
+    }
+    
     public function users_get()
     {
         

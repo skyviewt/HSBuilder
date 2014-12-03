@@ -47,7 +47,6 @@ var hsbuilder = angular.module('hsbuilder', ['acute.select']);
         };
         
         selectedCards = selectedCards.split(',');
-        console.log("mycards", selectedCards);
 
         //get neutral cards
         $http.get("/api/cards/class/neutral.json").
@@ -76,7 +75,7 @@ var hsbuilder = angular.module('hsbuilder', ['acute.select']);
      $scope.manaCount = {'0':0,'1':0,'2':0,'3':0, '4':0,'5':0, '6':0, '7':0};
      $scope.effects = {'battlecry':0,'taunt':0,'charge':0, 'enrage':0, 'overload':0, 'stealth':0, 'windfury':0, 'spell damage':0};
     $scope.addCard = function (card) {
-        console.log(card);
+        
         var isSelected = false;
         if($scope.count<30){
             if (card.cost<7){
@@ -105,6 +104,32 @@ var hsbuilder = angular.module('hsbuilder', ['acute.select']);
         }
        
      };
+     
+     $scope.evaluate = function (card){
+         
+         var value = 0;
+         
+         if(card.value_id > 0)
+         {
+            $http.get("/api/values/id/" + card.value_id + ".json").
+            success(function(data, status,headers,config) {
+                
+                value = computeValue(data[0][$scope.playerClass]);
+                
+                
+            }).
+            error(function(data, status,headers,config) {
+            //TODO: handle errors here!
+            });
+         }
+         
+     }
+     
+     //TODO: compute the actually value
+     function computeValue(val)
+     {
+        return val;
+     }
        
   });
 hsbuilder.directive('errSrc', function() {

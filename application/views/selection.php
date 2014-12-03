@@ -12,17 +12,17 @@
         <div class="col-md-4 center"> 
            <!--<ac-select ac-model="myCard1" ac-options="card.name for card in cards"></ac-select>-->
             
-              <select ng-model="myCard1" ng-options="card.name for card in cards">
+             <select ng-model="myCard1" ng-change="evaluate(myCard1)" ng-options="card.name for card in cards">
                 <option value="">-- Choose card --</option>
-            </select>
-                   <div class="place-card" ng-show="angular.isUndefined(myCard1) || myCard1 == null">  
+             </select>
+                <div class="place-card" ng-show="angular.isUndefined(myCard1) || myCard1 == null">  
                       <img src="<?=$base_url.$img_path?>cards/cardback.png">
-                  </div>
+                </div>
              <a ng-click="addCard(myCard1)" ng-hide="angular.isUndefined(myCard1) || myCard1 == null">
-                  <div class="place-card cardclick" > 
+                <div class="place-card cardclick" > 
                       <img ng-src="{{myCard1.image}}" err-src="<?=$base_url.$img_path?>cards/missing.png"/>
                 </div>
-            </a>
+             </a>
         </div>
         
          <div class="col-md-4 center">    
