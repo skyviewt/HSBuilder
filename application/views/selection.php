@@ -14,7 +14,7 @@
     <div class="row content-frame">
         <div class="col-md-4 center"> 
       
-         <ui-select class="ui-select" ng-model="card1.selected">
+         <ui-select  class="ui-select" ng-model="card1.selected" ng-change="evaluate(card1.selected)">
             <ui-select-match placeholder="Select or search a card...">{{$select.selected.name}}</ui-select-match>
              <ui-select-choices repeat="card1 in cards | filter: $select.search">
                <span ng-bind-html="card1.name | highlight: $select.search"></span>
@@ -33,7 +33,7 @@
         </div>
         
          <div class="col-md-4 center">    
-            <ui-select class="ui-select" ng-model="card2.selected">
+            <ui-select ng-change="evaluate(card2.selected)" class="ui-select" ng-model="card2.selected">
             <ui-select-match placeholder="Select or search a card...">{{$select.selected.name}}</ui-select-match>
              <ui-select-choices repeat="card2 in cards | filter: $select.search">
                <span ng-bind-html="card2.name | highlight: $select.search"></span>
@@ -51,7 +51,7 @@
         </div>
         
          <div class="col-md-4 center">    
-            <ui-select class="ui-select" ng-model="card3.selected">
+            <ui-select ng-change="evaluate(card3.selected)" class="ui-select" ng-model="card3.selected">
             <ui-select-match placeholder="Select or search a card...">{{$select.selected.name}}</ui-select-match>
              <ui-select-choices repeat="card3 in cards | filter: $select.search">
                <span ng-bind-html="card3.name | highlight: $select.search"></span>

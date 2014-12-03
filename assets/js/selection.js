@@ -110,7 +110,7 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
             }
 
             if(isSelected === false){
-               $scope.selectedCards.push({card:angular.copy(card), cardNum: 1});
+                $scope.selectedCards.push({card:angular.copy(card), cardNum: 1,  value:evaluate(card)});
             }
             $scope.count += 1;
             pushCardsStates();
@@ -118,34 +118,8 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
         }
        
      }; //end addcard
-     
-     $scope.evaluate = function (card){
-         
-         var value = 0;
-         
-         if(card.value_id > 0)
-         {
-            $http.get("/api/values/id/" + card.value_id + ".json").
-            success(function(data, status,headers,config) {
-                
-                value = computeValue(data[0][$scope.playerClass]);
-                
-                
-            }).
-            error(function(data, status,headers,config) {
-            //TODO: handle errors here!
-            });
-         }
-         
-     }
-     
-     //TODO: compute the actually value
-     function computeValue(val)
-     {
-        return val;
-     }
-       
-     
+    
+     //$scope.card1.value1=-1; $scope.value2=-1; $scope.value3=-1; 
      $scope.evaluate = function (card){
          
          var value = 0;
