@@ -19,13 +19,18 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
             }
             return temp.join(',');
         }).join(',');
-        window.history.pushState($scope.selectedCards, 
-                                 "cards added", 
-                                 "/home/selection?class=" +
-                                 $scope.playerClass + 
-                                 "&cards=" +
-                                 selectedCardsString
-                                 );
+        
+        //DIRTY HACK: I don't know how to fix this correctly
+        window.setTimeout(function(){
+            window.history.pushState($scope.selectedCards, 
+                                     $scope.selectedCards, 
+                                     "/home/selection?class=" +
+                                     $scope.playerClass + 
+                                     "&cards=" +
+                                     selectedCardsString
+                                     );
+
+        });
         
     };
      
