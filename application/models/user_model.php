@@ -28,8 +28,44 @@ class User_model extends CI_Model {
     
     public function get_user($user_id)
     {
-        $query = $this->db->get_where('user_id', array('user_id' => $user_id));
+        $query = $this->db->get_where('users', array('user_id' => $user_id));
         return $query->result();
+    }
+    
+    public function get_user_info($identity)
+    {
+        $query = NULL;
+        $this->db->select('user_id, username, email');
+        
+        if(filter_var($identity, FILTER_VALIDATE_EMAIL))
+        {
+            $query = $this->db->get_where('users', array('email' => $identity));
+        }
+        else
+        {
+            $query = $this->db->get_where('users', array('username' => $identity));
+        }
+            
+        return $query->result();
+    }
+    
+    public function validate_user($identity, $password)
+    {
+        if(filter_var($identity, FILTER_VALIDATE_EMAIL))
+        {
+            $this->db->get_where('users', array('email' => $identity, 'password' => $password));
+        }
+        else
+        {
+            $this->db->get_where('users', array('username' => $identity, 'password' => $password));
+        }
+        
+        if($this->db->count_all_results() > 0)
+        {
+            return TRUE;
+        }
+        
+        return FALSE;
     }
     
     public function create_user()
