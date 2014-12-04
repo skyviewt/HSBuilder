@@ -12,11 +12,11 @@
 <div class="col-md-9" id="cardSelection">
 
     <div class="row content-frame">
-        <div class="col-md-4 center"> 
+        <div class="col-md-4 center cardpick"> 
       
-         <ui-select  class="ui-select" ng-model="card1.selected" ng-change="evaluate(card1.selected)">
+         <ui-select ng-change="evaluate(card1.selected, 1)" class="ui-select" ng-model="card1.selected" >
             <ui-select-match placeholder="Select or search a card...">{{$select.selected.name}}</ui-select-match>
-             <ui-select-choices repeat="card1 in cards | filter: $select.search">
+             <ui-select-choices repeat="card1 in cards | propsFilter: {name: $select.search}">
                <span ng-bind-html="card1.name | highlight: $select.search"></span>
              </ui-select-choices>
          </ui-select>
@@ -24,18 +24,19 @@
                    <div class="place-card cardback" ng-show="angular.isUndefined(card1.selected) || card1.selected == null">  
                       <img src="<?=$base_url.$img_path?>cards/cardback.png">
                   </div>
-             <a ng-click="addCard(card1.selected)" ng-hide="angular.isUndefined(card1.selected) || card1.selected == null">
+             <a ng-click="addCard(card1.selected, value1)" ng-hide="angular.isUndefined(card1.selected) || card1.selected == null">
                   <div class="place-card cardclick" > 
                       <img ng-src="{{card1.selected.image}}" err-src="<?=$base_url.$img_path?>cards/missing.png"/>
                 </div>
             </a>
+            <h4>Value: <span ng-if="value1 > 0">{{value1}}</span></h4>
             
         </div>
         
-         <div class="col-md-4 center">    
-            <ui-select ng-change="evaluate(card2.selected)" class="ui-select" ng-model="card2.selected">
+         <div class="col-md-4 center cardpick">    
+            <ui-select ng-change="evaluate(card2.selected, 2)" class="ui-select" ng-model="card2.selected">
             <ui-select-match placeholder="Select or search a card...">{{$select.selected.name}}</ui-select-match>
-             <ui-select-choices repeat="card2 in cards | filter: $select.search">
+             <ui-select-choices repeat="card2 in cards | propsFilter: {name: $select.search}">
                <span ng-bind-html="card2.name | highlight: $select.search"></span>
              </ui-select-choices>
          </ui-select>
@@ -43,29 +44,41 @@
                    <div class="place-card cardback" ng-show="angular.isUndefined(card2.selected) || card2.selected == null">  
                       <img src="<?=$base_url.$img_path?>cards/cardback.png">
                   </div>
-             <a ng-click="addCard(card2.selected)" ng-hide="angular.isUndefined(card2.selected) || card2.selected == null">
+             <a ng-click="addCard(card2.selected, value2)" ng-hide="angular.isUndefined(card2.selected) || card2.selected == null">
                   <div class="place-card cardclick" > 
                       <img ng-src="{{card2.selected.image}}" err-src="<?=$base_url.$img_path?>cards/missing.png"/>
                 </div>
             </a>
+             <h4>Value: <span ng-if="value2 > 0">{{value2}}</span></h4>
         </div>
         
-         <div class="col-md-4 center">    
-            <ui-select ng-change="evaluate(card3.selected)" class="ui-select" ng-model="card3.selected">
+         <div class="col-md-4 center cardpick">    
+            <ui-select ng-change="evaluate(card3.selected, 3)" class="ui-select" ng-model="card3.selected">
             <ui-select-match placeholder="Select or search a card...">{{$select.selected.name}}</ui-select-match>
-             <ui-select-choices repeat="card3 in cards | filter: $select.search">
+             <ui-select-choices repeat="card3 in cards | propsFilter: {name: $select.search}">
                <span ng-bind-html="card3.name | highlight: $select.search"></span>
              </ui-select-choices>
          </ui-select>
-              
+                
                    <div class="place-card cardback" ng-show="angular.isUndefined(card1.selected) || card3.selected == null">  
                       <img src="<?=$base_url.$img_path?>cards/cardback.png">
                   </div>
-             <a ng-click="addCard(card3.selected)" ng-hide="angular.isUndefined(card3.selected) || card3.selected == null">
+             <a ng-click="addCard(card3.selected, value3)" ng-hide="angular.isUndefined(card3.selected) || card3.selected == null">
                   <div class="place-card cardclick" > 
                       <img ng-src="{{card3.selected.image}}" err-src="<?=$base_url.$img_path?>cards/missing.png"/>
                 </div>
             </a>
+             <h4>Value: <span ng-if="value3 > 0">{{value3}}</span></h4>
+             <div ng-switch="value3">
+                  <p ng-switch-when="value3<10 && value3>0">Horrible</p>
+                  <p ng-switch-when="value3<25 && value3>=10">Bad</p>                  
+                  <p ng-switch-when="value3<40 && value3>=25">Mediocre</p>                  
+                  <p ng-switch-when="value3<50 && value3>=40">Average</p>    
+                  <p ng-switch-when="value3<70 && value3>=50">Above Average</p>
+                 <p ng-switch-when="value3<80 && value3>=70">Good</p>
+                 <p ng-switch-when="value3<85 && value3>=80">Great</p>
+                 <p ng-switch-when="value3>=85">Excellent!</p>
+                </div>
         </div>
     
     </div>
@@ -177,6 +190,7 @@
         <div  id="deckdiv">
             <div id="deckcount">
                 <p>Deck: <span>{{count}}</span> / 30 cards</p>
+                <p>Total Value: <span>{{totalValue}}</span></p>
             </div>
             <li ng-repeat="c in selectedCards">
             <div class="deck screenshot">

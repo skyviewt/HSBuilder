@@ -208,6 +208,12 @@ max-height: 350px !important;
     font-weight: 800;
     text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rgb(137, 119, 103), 0px -1px rgb(137, 119, 103);
 }
+.cardpick h4{
+    font-family: 'Montserrat';
+
+    text-shadow: -1px 0px rgb(184, 180, 174), 0px 1px rgb(184, 180, 174), 1px 0px rgb(184, 180, 174), 0px -1px rgb(184, 180, 174);
+    color: #443211;
+}
 .deck:hover:before {
     content:'';
     display: block;
@@ -279,7 +285,6 @@ max-height: 350px !important;
     background-size: 100% 100%;
 }
 #deckcount > p {
-    padding: 20px;
     text-align: center;
     font-family:'Montserrat';
     color: #1B1105;
@@ -290,7 +295,12 @@ max-height: 350px !important;
     color: #A87842;
     text-shadow: -1px 0px rgb(0, 0, 0), 0px 1px rgb(0, 0, 0), 1px 0px rgb(0, 0, 0), 0px -1px rgb(0, 0, 0);
 }
-
+div#deckcount p:first-child {
+    padding-top:17px;
+}
+div#deckcount p:last-child {
+    padding-bottom: 17px;
+}
 .bar {
     min-height: 140px;
     padding: 0px;

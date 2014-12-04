@@ -9,19 +9,19 @@
 
 var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
 
- hsbuilder.controller('selectionController', function($scope, $http, $location) {
-    var pushCardsStates = function(){
+ hsbuilder.controller('selectionController', function($scope, $http) {
+    var pushCardsStates = function(value){
         var selectedCardsString = $scope.selectedCards.map(function(c){
             var temp = [];
             var i;
             for (i = 0; i < c.cardNum; i++) {
-                temp.push(c.card.id);
+                temp.push(c.card.id+'-'+value);
             }
             return temp.join(',');
         }).join(',');
         
-        //DIRTY HACK: I don't know how to fix this correctly
-        window.setTimeout(function(){
+        
+        
             window.history.pushState($scope.selectedCards, 
                                      $scope.selectedCards, 
                                      "/home/selection?class=" +
@@ -30,14 +30,14 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
                                      selectedCardsString
                                      );
 
-        });
+       
         
     };
      
     $scope.card1 = {}; 
     $scope.card2 = {};
     $scope.card3 = {};
-     
+    $scope.totalValue = 0;
     $scope.selectedCards=[];
 
     $scope.cards = [];
@@ -45,10 +45,11 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
     $scope.setup = function(playerClass, selectedCards){
         $scope.playerClass = playerClass;
         var processInputCards = function(data){
-            selectedCards.map(function(c){
-                var foundCard = data.filter(function(e){return e.id === c;})[0];
+            selectedCards.map(function(str){
+                str= str.split('-');
+                var foundCard = data.filter(function(e){return e.id === str[0];})[0];
                 if (foundCard) {
-                    $scope.addCard(foundCard);
+                    $scope.addCard(foundCard, parseInt(str[1]));
                     return foundCard;
                 } else {
                     return null;
@@ -84,7 +85,8 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
     $scope.count = 0;
     $scope.manaCount = {'0':0,'1':0,'2':0,'3':0, '4':0,'5':0, '6':0, '7':0};
     $scope.effects = {'battlecry':0,'taunt':0, 'deathrattle':0, 'charge':0, 'enrage':0, 'overload':0, 'stealth':0, 'windfury':0, 'spell damage':0};
-    $scope.addCard = function (card) {
+    
+     $scope.addCard = function (card, value) {
 
         var isSelected = false;
         if($scope.count<30){
@@ -118,17 +120,20 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
             }
 
             if(isSelected === false){
-                $scope.selectedCards.push({card:angular.copy(card), cardNum: 1,  value:evaluate(card)});
+                if(card)
+                $scope.selectedCards.push({card:angular.copy(card), cardNum: 1, value:parseInt(value)});
             }
             $scope.count += 1;
-            pushCardsStates();
+            $scope.totalValue += parseInt(value);
+            pushCardsStates(value);
 
         }
        
      }; //end addcard
     
-     //$scope.card1.value1=-1; $scope.value2=-1; $scope.value3=-1; 
-     $scope.evaluate = function (card){
+     $scope.value1= -1; $scope.value2= -1; $scope.value3= -1; 
+     
+      $scope.evaluate = function (card, int) {
          
          var value = 0;
          
@@ -138,7 +143,17 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
             success(function(data, status,headers,config) {
                 
                 value = computeValue(data[0][$scope.playerClass]);
-                
+                switch(int) {
+                    case 1:
+                        $scope.value1 = value;
+                        break;
+                    case 2:
+                        $scope.value2 = value;
+                        break;
+                    case 3:
+                        $scope.value3 = value;
+                        break;
+                }          
                 
             }).
             error(function(data, status,headers,config) {
@@ -155,3 +170,44 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
      }
        
   });
+
+hsbuilder.directive('errSrc', function() {
+return {
+   link: function(scope, element, attrs) {
+     element.bind('error', function() {        if (attrs.src != attrs.errSrc) {
+         attrs.$set('src', attrs.errSrc);
+        }
+      });
+    }
+ }
+});
+hsbuilder.filter('propsFilter', function() {
+  return function(items, props) {
+    var out = [];
+
+    if (angular.isArray(items)) {
+      items.forEach(function(item) {
+        var itemMatches = false;
+
+        var keys = Object.keys(props);
+        for (var i = 0; i < keys.length; i++) {
+          var prop = keys[i];
+          var text = props[prop].toLowerCase();
+          if (item[prop].toString().toLowerCase().indexOf(text) !== -1) {
+            itemMatches = true;
+            break;
+          }
+        }
+
+        if (itemMatches) {
+          out.push(item);
+        }
+      });
+    } else {
+      // Let the output be the input untouched
+      out = items;
+    }
+
+    return out;
+  }
+});
