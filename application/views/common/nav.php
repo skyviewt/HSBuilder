@@ -31,7 +31,7 @@
           </div>
             <div class="center">
             
-                <button type="submit" class="styling-btn btn btn-default" ng-click="submit()">Submit</button>
+                <button type="submit" class="styling-btn btn btn-default" ng-submit="submit()">Submit</button>
            
          
                 <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Cancel</button>
@@ -52,19 +52,19 @@
       <form role="form">
           <div class="form-group">
             <label>Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter Username" />
+            <input type="text" class="form-control" ng-model="regData.name" placeholder="Enter Username" />
           </div>
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" />
+            <input type="email" class="form-control" ng-model="regData.email" placeholder="Enter email" />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password" />
+            <input type="password" class="form-control" ng-model="regData.password" placeholder="Password" />
           </div>
           <div class="form-group">
             <label for="password">Repeat Password</label>
-            <input type="password" class="form-control" id="password2" placeholder="Password" />
+            <input type="password" class="form-control" ng-model="regData.password2" placeholder="Password" />
           </div>
             <div class="center">
             
@@ -72,7 +72,8 @@
            
          
                 <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Cancel</button>
-            
+                {{regData}}
+                {{status}}
             </div>
     </form>
             

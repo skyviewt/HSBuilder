@@ -252,13 +252,30 @@ hsbuilder.controller('modalController', function ($scope, $modal) {
     
    
 });
-hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-
-
+hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http) {
+   
+    $scope.status = "ok";
   $scope.submit = function () {
+      
     
   };
+    $scope.regData = {};
     $scope.submit2 = function () {
+        console.log("hallo");
+        if($scope.regData.password== $scope.regData.password2) {
+            delete $scope.regData.password2;
+             $http({
+            url: 'api/users',
+            method: "POST",
+            data: $scope.regData,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function (data, status, headers, config) {
+                 $modalInstance.dismiss('cancel');
+                alert(success);
+            }).error(function (data, status, headers, config) {
+                $scope.status = status;
+            });
+        }
     
   };
 

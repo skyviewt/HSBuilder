@@ -408,16 +408,16 @@ outline: 0;
 box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(188, 87, 223, 0.6);
 }
 .styling-btn {
-    background: #398525;
-    background: -moz-linear-gradient(top, #A359E7 5%, #372177 100%);
+    background: #735FAD;
+    /*background: -moz-linear-gradient(top, #A359E7 5%, #372177 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#A359E7), color-stop(100%,#372177));
     box-shadow: inset 0px 0px 6px #3E4BA1;
-    -webkit-box-shadow: inset 0px 0px 6px #3E4BA1;
+    -webkit-box-shadow: inset 0px 0px 6px #3E4BA1;*/
     border: none;
     text-transform: uppercase;
     text-decoration: none;
     font-family: 'Montserrat';
-    color: #4E1C6F;
+    color: #E2DEDE;
     text-shadow: 0px 1px 2px #7A4BED;
     -moz-transition: all 0.25s ease-in-out;
     -webkit-transition: all 0.25s ease-in-out;
@@ -427,12 +427,17 @@ box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(188, 87, 223, 0.6);
   
 }
 .styling-btn:hover {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#6B38C2), color-stop(100%,#603184));
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#6B38C2), color-stop(100%,#603184));
 color: rgb(219, 214, 214);
-background: -moz-linear-gradient(top, #6B38C2 5%, #603184 100%);
+background: -moz-linear-gradient(top, #6B38C2 5%, #603184 100%);*/
+   
     -moz-transition: all 0.25s ease-in-out;
     -webkit-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
+    background: #8E672C;
+color: rgb(200, 191, 181);
+
+text-shadow: 0px 1px 2px #3D2B03;
 }
 .form-group label {
     font-family:'Montserrat';
