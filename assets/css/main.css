@@ -71,18 +71,19 @@ a {
 }
 .navbar-collapse.collapse {
     border-bottom: 1px solid #202330;
-    background: -webkit-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
+    background: -webkit-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
     
-    background: -o-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
+    background: -o-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
     
-    background: -moz-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
+    background: -moz-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
    
-    background: linear-gradient(rgb(174, 112, 29), #5A3812, rgb(40, 14, 9));
+    background: linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
     
 }
 .nav > li > a {
     font-size: 18px;
-    color: #B09B72;
+    color: #2C1F04;
+    text-shadow: -1px 1px 0 #5E453B;
 }
 .nav > li > a >span {
     margin-right: 3px;
@@ -118,6 +119,7 @@ html, body {
     padding: 2em;
     border-image: url("../img/frame1.png") 17 20 stretch;
     border-width: 17px 20px;
+    box-shadow: inset 0px 0px 100px #080601;
 }
 .text-muted {
     color: #aaa2a5 !important;
@@ -296,10 +298,11 @@ max-height: 350px !important;
     text-shadow: -1px 0px rgb(0, 0, 0), 0px 1px rgb(0, 0, 0), 1px 0px rgb(0, 0, 0), 0px -1px rgb(0, 0, 0);
 }
 div#deckcount p:first-child {
-    padding-top:17px;
+    padding-top:20px;
+    margin-bottom:0;
 }
 div#deckcount p:last-child {
-    padding-bottom: 17px;
+    padding-bottom: 20px;
 }
 .bar {
     min-height: 140px;
