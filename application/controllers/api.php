@@ -73,9 +73,13 @@ class Api extends REST_Controller {
         {
            $this->response(array('error' => "username must be alpha numeric"), 400);
         }
-        else if(strlen($this->post("")) < 4)
+        else if(!$this->isValidMd5($this->post("password")))
         {
-           $this->response(array('error' => "password must be at least 4 characters"), 400);
+           $this->response(array('error' => "invalid password format"), 400);
+        }
+        if(!filter_var($this->post("email"), FILTER_VALIDATE_EMAIL))
+        {
+           $this->response(array('error' => "invalid email address"), 400);
         }
         
         $this->user->setParam($this->post("username"), $this->post("password"), $this->post("email"));
@@ -91,9 +95,48 @@ class Api extends REST_Controller {
         
     }
     
+    // /api/login
+    public function login_post()
+    {
+        $this->load->model('User_model', 'user', TRUE);
+        
+        if(!$this->isValidMd5($this->post("password")))
+        {
+           $this->response(array('error' => "invalid password format"), 400);
+        } 
+        
+        if(filter_var($this->post("identity"), FILTER_VALIDATE_EMAIL) OR ctype_alnum($this->post("identity")))
+        {
+            if($this->user->validate_user($this->post("identity"), $this->post("password")))
+            {                
+                $this->response($this->user->get_user_info($this->post("identity")), 200);
+            }
+            else
+            {
+                
+            }
+        }
+        else 
+        {
+            $this->response(array('error' => "invalid username or email format"), 400);
+        }
+    }
+    
+    // /api/logout
+    public function logout_post()
+    {
+        
+    }
+    
+    //to be implemented in future
     // /api/stats
     public function stats_get()
     {
         //TODO: query param: /api/stats/card/{id}, /api/stats/class/{className}
+    }
+    
+    private function isValidMd5($md5)
+    {
+        return preg_match('/^[a-f0-9]{32}$/', $md5);
     }
 }
