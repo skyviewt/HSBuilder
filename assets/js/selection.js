@@ -10,12 +10,15 @@
 var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
 
  hsbuilder.controller('selectionController', function($scope, $http) {
-    var pushCardsStates = function(value){
+     $scope.totalValue = 0;
+     $scope.deferedValue = -1;
+     var pushCardsStates = function(){
+         
         var selectedCardsString = $scope.selectedCards.map(function(c){
             var temp = [];
             var i;
             for (i = 0; i < c.cardNum; i++) {
-                temp.push(c.card.id+'-'+value);
+                temp.push(c.card.id);
             }
             return temp.join(',');
         }).join(',');
@@ -29,15 +32,13 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
                                      "&cards=" +
                                      selectedCardsString
                                      );
-
-       
         
     };
      
     $scope.card1 = {}; 
     $scope.card2 = {};
     $scope.card3 = {};
-    $scope.totalValue = 0;
+    
     $scope.selectedCards=[];
 
     $scope.cards = [];
@@ -46,17 +47,23 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
         $scope.playerClass = playerClass;
         var processInputCards = function(data){
             selectedCards.map(function(str){
-                str= str.split('-');
-                var foundCard = data.filter(function(e){return e.id === str[0];})[0];
+                
+                var foundCard = data.filter(function(e){return e.id === str})[0];
                 if (foundCard) {
-                    $scope.addCard(foundCard, parseInt(str[1]));
-                    return foundCard;
+                    
+                    var promise = $http.get("/api/values/id/" + foundCard.value_id + ".json");
+                    promise.then(function(result) {
+                
+                        var value = computeValue(result.data[0][$scope.playerClass]);
+                         $scope.addCard(foundCard, value);   
+                            return foundCard;
+                        });
+                  
                 } else {
                     return null;
                 }
             });
         };
-        
         selectedCards = selectedCards.split(',');
 
 
@@ -121,11 +128,14 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
 
             if(isSelected === false){
                 if(card)
-                $scope.selectedCards.push({card:angular.copy(card), cardNum: 1, value:parseInt(value)});
+                $scope.selectedCards.push({card:angular.copy(card), cardNum: 1, value:value});
             }
             $scope.count += 1;
             $scope.totalValue += parseInt(value);
-            pushCardsStates(value);
+            console.log(value);
+            
+            pushCardsStates();
+           
 
         }
        
@@ -153,13 +163,20 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
                     case 3:
                         $scope.value3 = value;
                         break;
-                }          
-                
+                    case 0:
+                       $scope.deferedValue = value;
+                        break;
+                     
+                }
+            return value;
             }).
             error(function(data, status,headers,config) {
             //TODO: handle errors here!
+            
             });
+             
          }
+          
          
      }
      
