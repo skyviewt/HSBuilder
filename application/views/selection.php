@@ -1,14 +1,8 @@
 
  
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.8/select2.min.js"></script>
-<script type="text/javascript" src="<?=$base_url.$js_path?>selection.js"></script>
- <script type="text/javascript" src="<?=$base_url?>bower_components/angular-ui-select/dist/select.js"></script>
-<script type="text/javascript" src="<?=$base_url?>bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?=$base_url?>bower_components/angular-ui-select/dist/select.css" />
-
 
 <div class="start-content">
-    <div class="row " ng-app="hsbuilder" ng-controller="selectionController" ng-init = "setup('<?=$class?>', '<?=$selectedCards?>')">
+    <div class="row"  ng-controller="selectionController" ng-init = "setup('<?=$class?>', '<?=$selectedCards?>')">
 <div class="col-md-9" id="cardSelection">
 
     <div class="row content-frame">
@@ -213,6 +207,7 @@
    
   
 </div>
+
 </body>
 </html>
    

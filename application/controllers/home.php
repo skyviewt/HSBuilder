@@ -61,6 +61,24 @@ class Home extends CI_Controller {
 		$this->load->view('common/nav');
 		$this->load->view('selection', $data);
     }
+    
+    
+    public function account()
+    {
+    $data['base_url'] = config_item('base_url');
+    $data['title'] = "HS Arena DeckBuilder";
+    $data['css_path'] = config_item('css_path');
+    $data['js_path'] = config_item('js_path');
+    $data['css_files'] = array('hover.css', 'main.css');
+    $data['img_path'] = config_item('img_path');
+    $data['class'] = $this->input->get('class', TRUE);
+    $data['selectedCards'] = $this->input->get('cards', TRUE);
+        
+       $this->load->view('common/head', $data);
+		$this->load->view('common/nav');
+		$this->load->view('account', $data);
+    }
+
 
     
     //return json not render views

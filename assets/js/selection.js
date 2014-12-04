@@ -7,7 +7,7 @@
 */
 
 
-var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select']);
+var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select','ui.bootstrap']);
 
  hsbuilder.controller('selectionController', function($scope, $http) {
      $scope.totalValue = 0;
@@ -227,4 +227,43 @@ hsbuilder.filter('propsFilter', function() {
 
     return out;
   }
+});
+
+hsbuilder.controller('modalController', function ($scope, $modal) {
+   
+  $scope.login = function (size) {
+   
+    var modalInstance = $modal.open({
+      templateUrl: 'login.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+    });
+
+  };
+    $scope.signup = function (size) {
+   
+    var modalInstance = $modal.open({
+      templateUrl: 'signup.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+    });
+
+  };
+    
+   
+});
+hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
+
+
+  $scope.submit = function () {
+    
+  };
+    $scope.submit2 = function () {
+    
+  };
+
+  $scope.cancel = function () {
+     
+    $modalInstance.dismiss('cancel');
+  };
 });

@@ -1,8 +1,11 @@
 
-<div class="frame page-wrap" >
+<div class="frame" >
      <div class="welcometitle">
         <h4>Choose Your class</h4>
     </div>
+    <div id="class-group">
+        
+   
      <div class="row top">
 
           <div class="col-sm-4 ">
@@ -118,6 +121,7 @@
                 </div></a></div> 
           </div>
         </div>
+         </div>
     </div>  
 </body>
 </html>
