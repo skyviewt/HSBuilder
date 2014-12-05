@@ -8,10 +8,16 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li ng-if="<?=$status?> == false"><a ng-click="login()"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>
-        <li ng-if="<?=$status?> == false"><a ng-click="signup()"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Sign Up</a></li>
-          <li ng-if="<?=$status?> == true"><a href="account/profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Account</a></li>
-          <li ng-if="<?=$status?> == true"><a ng-click="logout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out</a></li>
+          <?php if ($status != TRUE): ?>
+            <li><a ng-click="login()"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a></li>
+            <li><a ng-click="signup()"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Sign Up</a></li>
+          <?php endif; ?> 
+          
+          <?php if ($status == TRUE): ?>
+            <li><a href="/account/profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Account</a></li>
+            <li><a ng-click="logout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out</a></li>
+          <?php endif; ?>
+          
           <li><a ><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Stats</a></li>
           <li><a ><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> About</a></li>
       </ul>

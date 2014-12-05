@@ -24,6 +24,7 @@ class Account extends CI_Controller {
         $this->is_logged_in();
         $this->load->library('session');
 		$data['username'] = $this->session->userdata('username');
+        $data['status'] = $this->session->userdata('logged_in');
         $data['base_url'] = config_item('base_url');
         $data['title'] = "HS Arena DeckBuilder";
         $data['css_path'] = config_item('css_path');
@@ -84,6 +85,20 @@ class Account extends CI_Controller {
         }
     }
     
+    public function logout()
+    {
+        $this->load->library('session');
+        
+        $data = array(
+             'username' => '',
+             'user_id' => '',
+             'email' => '',
+             'logged_in' => ''
+        );
+                
+	    $this->session->unset_userdata($data);
+    }
+    
     private function isValidMd5($md5)
     {
         return preg_match('/^[a-f0-9]{32}$/', $md5);
@@ -99,6 +114,5 @@ class Account extends CI_Controller {
 			die();		
 		}		
 	}
-  
     
 }

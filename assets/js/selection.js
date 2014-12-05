@@ -230,7 +230,7 @@ hsbuilder.filter('propsFilter', function() {
   }
 });
 
-hsbuilder.controller('modalController', function ($scope, $modal) {
+hsbuilder.controller('modalController', function ($scope, $http, $modal) {
    
   $scope.login = function (size) {
    
@@ -250,6 +250,21 @@ hsbuilder.controller('modalController', function ($scope, $modal) {
     });
 
   };
+    
+  $scope.logout = function(){
+          $http({
+            url: '/account/logout',
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function (data, status, headers, config) {
+
+            console.log(data);
+            window.location = "/";
+        }).error(function (data, status, headers, config) {
+            alert(data['error']);
+            $scope.status = status;
+        }); 
+  }
     
    
 });

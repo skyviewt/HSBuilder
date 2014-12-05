@@ -96,57 +96,33 @@ class Api extends REST_Controller {
         
     }
     
-    // /api/login
-    public function login_post()
+    // /api/runs/user_id/{id}
+    public function run_get()
     {
-        $this->load->model('User_model', 'user', TRUE);
-        $payload = json_decode(file_get_contents('php://input'),true);
+        $this->load->model('Run_model', 'run', TRUE);
         
-        if(!$this->isValidMd5($payload["password"]))
+        if($this->get('user_id'))
         {
-           $this->response(array('error' => "invalid password format"), 400);
-        } 
-        
-        if(filter_var($payload["identity"], FILTER_VALIDATE_EMAIL) OR ctype_alnum($payload["identity"]))
-        {
-            if($this->user->validate_user($payload["identity"], $payload["password"]))
-            {                
-                
-               $this->load->library('session');
-               $user = $this->user->get_user_info($payload["identity"]);
-               
-               $is_logged_in = $this->session->userdata('logged_in');
-                
-		       if(!isset($is_logged_in) || $is_logged_in != TRUE)
-               {
-                   $data = array(
-							'username' => $user['username'],
-							'user_id' => $user['user_id'],
-                            'email' => $user['email'],
-							'logged_in' => TRUE
-						);
-                
-			       $this->session->set_userdata($data);
-               }
-                
-               $this->response($user, 200);                
-            }
-            else
-            {
-                $this->response(array('error' => "User Not Found"), 404);
-            }
+            $this->response($this->run->get_runs($this->get('user_id')), 200);
         }
-        else 
+        else
         {
-            $this->response(array('error' => "invalid username or email format"), 400);
+            $this->response(array('error' => 'invalid parameter has been passed. The accepted parameters is id"'), 400);
         }
     }
     
-    // /api/logout
-    public function logout_post()
+    // /api/runs/user_id/{id}
+    public function run_post()
     {
+        $this->load->model('Run_model', 'run', TRUE);
+        $this->run->setParam(json_decode(file_get_contents('php://input'),true));
         
+        if($this->run->add_run())
+        {
+           $this->response(array('success' => "Arena Run Saved"), 200);
+        }
     }
+ 
     
     //to be implemented in future
     // /api/stats
