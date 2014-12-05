@@ -68,11 +68,11 @@
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" required ng-model="regData.password" placeholder="Password" />
+            <input type="password" class="form-control" id="password1" name="password" required ng-model="regData.password" placeholder="Password" />
           </div>
           <div class="form-group">
             <label for="password">Repeat Password</label>
-            <input type="password" class="form-control" name="password" required ng-model="regData.password2" placeholder="Password" />
+            <input type="password" class="form-control" id="password2" name="password" required ng-model="regData.password2" placeholder="Password" />
           </div>
             <div class="center">
             
@@ -81,7 +81,6 @@
          
                 <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Cancel</button>
             </div>
-            <p>{{errormsg}}</p>
     </form>
             
         </div>
@@ -115,6 +114,7 @@
    
       </div>
     </script>
+    
     <script type="text/ng-template" id="loginerror.html">
     <div id="modal">
         <div class="modal-header">

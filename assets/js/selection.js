@@ -345,6 +345,7 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
             });
             }else{
             //pass dont match
+            document.getElementById('password1').setCustomValidity('Passwords must match.');
             }
         }else{
             //null fields
