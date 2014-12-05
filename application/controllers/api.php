@@ -68,21 +68,22 @@ class Api extends REST_Controller {
     public function users_post()
     {
         $this->load->model('User_model', 'user', TRUE);
+        $payload = json_decode(file_get_contents('php://input'),true);
         
-        if(!ctype_alnum($this->post("username")))
+        if(!ctype_alnum($payload["username"]))
         {
            $this->response(array('error' => "username must be alpha numeric"), 400);
         }
-        else if(!$this->isValidMd5($this->post("password")))
+        else if(!$this->isValidMd5($payload["password"]))
         {
            $this->response(array('error' => "invalid password format"), 400);
         }
-        if(!filter_var($this->post("email"), FILTER_VALIDATE_EMAIL))
+        if(!filter_var($payload["email"], FILTER_VALIDATE_EMAIL))
         {
            $this->response(array('error' => "invalid email address"), 400);
         }
         
-        $this->user->setParam($this->post("username"), $this->post("password"), $this->post("email"));
+        $this->user->setParam($payload["username"], $payload["password"], $payload["email"]);
         $this->user->create_user();
         
         $this->response(array('success' => "User Created!"), 200);

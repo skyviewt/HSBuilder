@@ -264,14 +264,15 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
         console.log("hallo");
         if($scope.regData.password== $scope.regData.password2) {
             delete $scope.regData.password2;
+            $scope.regData.password = CryptoJS.MD5($scope.regData.password).toString();
              $http({
-            url: 'api/users',
+            url: '/api/users',
             method: "POST",
             data: $scope.regData,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function (data, status, headers, config) {
                  $modalInstance.dismiss('cancel');
-                alert(success);
+                 console.log(data);
             }).error(function (data, status, headers, config) {
                 $scope.status = status;
             });
