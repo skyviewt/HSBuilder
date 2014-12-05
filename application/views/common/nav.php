@@ -52,19 +52,19 @@
       <form role="form">
           <div class="form-group">
             <label>Username</label>
-            <input type="text" class="form-control" ng-model="regData.username" placeholder="Enter Username" />
+            <input type="text" class="form-control" required name="username" ng-model="regData.username" placeholder="Enter Username" />
           </div>
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" ng-model="regData.email" placeholder="Enter email" />
+            <input type="email" class="form-control" name="email" required ng-model="regData.email" placeholder="Enter email" />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" ng-model="regData.password" placeholder="Password" />
+            <input type="password" class="form-control" name="password" required ng-model="regData.password" placeholder="Password" />
           </div>
           <div class="form-group">
             <label for="password">Repeat Password</label>
-            <input type="password" class="form-control" ng-model="regData.password2" placeholder="Password" />
+            <input type="password" class="form-control" name="password" required ng-model="regData.password2" placeholder="Password" />
           </div>
             <div class="center">
             
@@ -72,11 +72,38 @@
            
          
                 <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Cancel</button>
-                {{regData}}
-                {{status}}
+                
             </div>
     </form>
             
         </div>
+      </div>
+    </script>
+    
+   <script type="text/ng-template" id="ok.html">
+    <div id="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Success!</h3>
+        </div>
+        <div class="modal-body center">
+             <p>Your registration is successful. Please Log in to continue as a registered user.</p>
+             <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Ok</button>
+
+            </div>
+   
+      </div>
+    </script>
+    
+    <script type="text/ng-template" id="error.html">
+    <div id="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Oops...</h3>
+        </div>
+        <div class="modal-body center">
+             <p>Your account could not be registered at the moment. Please try again shortly.</p>
+             <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Ok</button>
+
+            </div>
+   
       </div>
     </script>

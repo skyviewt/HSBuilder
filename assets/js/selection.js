@@ -253,7 +253,7 @@ hsbuilder.controller('modalController', function ($scope, $modal) {
     
    
 });
-hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http) {
+hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http, $modal) {
    
     $scope.status = "ok";
   $scope.submit = function () {
@@ -272,10 +272,20 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
             data: $scope.regData,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function (data, status, headers, config) {
-                 $modalInstance.dismiss('cancel');
-                 console.log(data);
+                 $modalInstance.dismiss('cancel'); 
+                 $modal.open({
+                  templateUrl: 'ok.html',
+                  controller: 'ModalInstanceCtrl',
+                });
+                 
+                 
             }).error(function (data, status, headers, config) {
-                $scope.status = status;
+                 $modalInstance.dismiss('cancel');
+                 $modal.open({
+                  templateUrl: 'error.html',
+                  controller: 'ModalInstanceCtrl',
+                });
+                  
             });
         }
     

@@ -4,7 +4,6 @@
 <div class="start-content">
     <div class="row"  ng-controller="selectionController" ng-init = "setup('<?=$class?>', '<?=$selectedCards?>')">
 <div class="col-md-9" id="cardSelection">
-
     <div class="row content-frame">
         <div class="col-md-4 center cardpick"> 
       
@@ -25,6 +24,16 @@
             </a>
             <h4>Value: <span ng-if="value1 > 0">{{value1}}</span></h4>
             
+                     <p ng-if="value1 <= 0">_</p>
+                  <p ng-if="(value1 < 10) && (value1 > 0)">Horrible</p>
+                  <p ng-if="(value1 < 25) && (value1 >= 10)">Bad</p>                  
+                  <p ng-if="(value1 < 40) && (value1 >= 25)">Mediocre</p>                  
+                   <p ng-if="(value1 < 50) && (value1 >= 40)">Average</p>    
+                  <p ng-if="(value1 < 70) && (value1 >= 50)">Above Average</p>
+                  <p ng-if="(value1 < 80) && (value1 >= 70)">Good</p>
+                  <p ng-if="(value1 < 85) && (value1 >= 80)">Great</p>
+                  <p ng-if="value1 >= 85">Excellent!</p>
+            
         </div>
         
          <div class="col-md-4 center cardpick">    
@@ -44,6 +53,16 @@
                 </div>
             </a>
              <h4>Value: <span ng-if="value2 > 0">{{value2}}</span></h4>
+             
+                    <p ng-if="value2 <= 0">_</p>
+                  <p ng-if="(value2 < 10) && (value2 > 0)">Horrible</p>
+                  <p ng-if="(value2 < 25) && (value2 >= 10)">Bad</p>                  
+                  <p ng-if="(value2 < 40) && (value2 >= 25)">Mediocre</p>                  
+                   <p ng-if="(value2 < 50) && (value2 >= 40)">Average</p>    
+                  <p ng-if="(value2 < 70) && (value2 >= 50)">Above Average</p>
+                  <p ng-if="(value2 < 80) && (value2 >= 70)">Good</p>
+                  <p ng-if="(value2 < 85) && (value2 >= 80)">Great</p>
+                  <p ng-if="value2 >= 85">Excellent!</p>
         </div>
         
          <div class="col-md-4 center cardpick">    
@@ -63,16 +82,16 @@
                 </div>
             </a>
              <h4>Value: <span ng-if="value3 > 0">{{value3}}</span></h4>
-             <!--<div ng-switch="value3">
-                  <p ng-switch-when="value3<10 && value3>0">Horrible</p>
-                  <p ng-switch-when="value3<25 && value3>=10">Bad</p>                  
-                  <p ng-switch-when="value3<40 && value3>=25">Mediocre</p>                  
-                  <p ng-switch-when="value3<50 && value3>=40">Average</p>    
-                  <p ng-switch-when="value3<70 && value3>=50">Above Average</p>
-                  <p ng-switch-when="value3<80 && value3>=70">Good</p>
-                  <p ng-switch-when="value3<85 && value3>=80">Great</p>
-                  <p ng-switch-when="value3>=85">Excellent!</p>
-                </div>-->
+                    <p ng-if="value3 <= 0">_</p>
+                  <p ng-if="(value3 < 10) && (value3 > 0)">Horrible</p>
+                  <p ng-if="(value3 < 25) && (value3 >= 10)">Bad</p>                  
+                  <p ng-if="(value3 < 40) && (value3 >= 25)">Mediocre</p>                  
+                  <p ng-if="(value3 < 50) && (value3 >= 40)">Average</p>    
+                  <p ng-if="(value3 < 70) && (value3 >= 50)">Above Average</p>
+                  <p ng-if="(value3 < 80) && (value3 >= 70)">Good</p>
+                  <p ng-if="(value3 < 85) && (value3 >= 80)">Great</p>
+                  <p ng-if="value3 >= 85">Excellent!</p>
+                
         </div>
     
     </div>
