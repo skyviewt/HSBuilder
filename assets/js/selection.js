@@ -267,11 +267,7 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
             delete $scope.regData.password2;
             $scope.regData.password = CryptoJS.MD5($scope.regData.password).toString();
              $http({
-<<<<<<< HEAD
-            url: '/api/users/',
-=======
             url: '/api/users',
->>>>>>> 8c0f83a135076e2c2b7de2c40bb8ae5c3a007be7
             method: "POST",
             data: $scope.regData,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
