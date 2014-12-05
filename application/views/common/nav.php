@@ -22,20 +22,19 @@
         <div class="modal-body">
       <form role="form">
           <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" />
+            <label for="email">Username OR Email address</label>
+            <input type="text" class="form-control" ng-model="logData.identity" placeholder="Enter Username Or Email" />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
+            <input type="password" class="form-control" ng-model="logData.password" placeholder="Password" />
           </div>
             <div class="center">
             
-                <button type="submit" class="styling-btn btn btn-default" ng-submit="submit()">Submit</button>
+                <button type="submit" class="styling-btn btn btn-default" ng-click="submit()">Submit</button>
            
          
                 <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Cancel</button>
-            
             </div>
     </form>
         </div>
@@ -72,7 +71,6 @@
            
          
                 <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Cancel</button>
-                
             </div>
     </form>
             

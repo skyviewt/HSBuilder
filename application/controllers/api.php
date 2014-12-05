@@ -100,21 +100,40 @@ class Api extends REST_Controller {
     public function login_post()
     {
         $this->load->model('User_model', 'user', TRUE);
+        $payload = json_decode(file_get_contents('php://input'),true);
         
-        if(!$this->isValidMd5($this->post("password")))
+        if(!$this->isValidMd5($payload["password"]))
         {
            $this->response(array('error' => "invalid password format"), 400);
         } 
         
-        if(filter_var($this->post("identity"), FILTER_VALIDATE_EMAIL) OR ctype_alnum($this->post("identity")))
+        if(filter_var($payload["identity"], FILTER_VALIDATE_EMAIL) OR ctype_alnum($payload["identity"]))
         {
-            if($this->user->validate_user($this->post("identity"), $this->post("password")))
+            if($this->user->validate_user($payload["identity"], $payload["password"]))
             {                
-                $this->response($this->user->get_user_info($this->post("identity")), 200);
+                
+               $this->load->library('session');
+               $user = $this->user->get_user_info($payload["identity"]);
+               
+               $is_logged_in = $this->session->userdata('logged_in');
+                
+		       if(!isset($is_logged_in) || $is_logged_in != TRUE)
+               {
+                   $data = array(
+							'username' => $user['username'],
+							'user_id' => $user['user_id'],
+                            'email' => $user['email'],
+							'logged_in' => TRUE
+						);
+                
+			       $this->session->set_userdata($data);
+               }
+                
+               $this->response($user, 200);                
             }
             else
             {
-                
+                $this->response(array('error' => "User Not Found"), 404);
             }
         }
         else 

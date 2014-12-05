@@ -46,21 +46,23 @@ class User_model extends CI_Model {
             $query = $this->db->get_where('users', array('username' => $identity));
         }
             
-        return $query->result();
+        return $query->result_array();
     }
     
     public function validate_user($identity, $password)
     {
+        $query = NULL;
+        
         if(filter_var($identity, FILTER_VALIDATE_EMAIL))
         {
-            $this->db->get_where('users', array('email' => $identity, 'password' => $password));
+            $query = $this->db->get_where('users', array('email' => $identity, 'password' => $password));
         }
         else
         {
-            $this->db->get_where('users', array('username' => $identity, 'password' => $password));
+            $query = $this->db->get_where('users', array('username' => $identity, 'password' => $password));
         }
         
-        if($this->db->count_all_results() > 0)
+        if($query != NULL AND count($query->result()) > 0)
         {
             return TRUE;
         }
