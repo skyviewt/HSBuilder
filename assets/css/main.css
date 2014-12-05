@@ -471,3 +471,17 @@ text-shadow: 0px 1px 2px #3D2B03;
 
 }
 
+.runcontainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.runcontainer button {
+    margin-top: 10px;
+}
+
+.winloss {
+    margin-top: 20px;
+    display: inline;
+    width: 44%;
+    margin-right: 2.5%;
