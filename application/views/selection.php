@@ -63,16 +63,16 @@
                 </div>
             </a>
              <h4>Value: <span ng-if="value3 > 0">{{value3}}</span></h4>
-             <div ng-switch="value3">
+             <!--<div ng-switch="value3">
                   <p ng-switch-when="value3<10 && value3>0">Horrible</p>
                   <p ng-switch-when="value3<25 && value3>=10">Bad</p>                  
                   <p ng-switch-when="value3<40 && value3>=25">Mediocre</p>                  
                   <p ng-switch-when="value3<50 && value3>=40">Average</p>    
                   <p ng-switch-when="value3<70 && value3>=50">Above Average</p>
-                 <p ng-switch-when="value3<80 && value3>=70">Good</p>
-                 <p ng-switch-when="value3<85 && value3>=80">Great</p>
-                 <p ng-switch-when="value3>=85">Excellent!</p>
-                </div>
+                  <p ng-switch-when="value3<80 && value3>=70">Good</p>
+                  <p ng-switch-when="value3<85 && value3>=80">Great</p>
+                  <p ng-switch-when="value3>=85">Excellent!</p>
+                </div>-->
         </div>
     
     </div>
