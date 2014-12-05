@@ -317,7 +317,7 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
     
     //create user
     $scope.submit2 = function () {
-        if(!(isPropertyNull($scope.regData.username) && isPropertyNull($scope.regData.password) && isPropertyNull($scope.regData.password2) && isPropertyNull($scope.regData.email)) ){
+        if(!(isPropertyNull($scope.regData.username) || isPropertyNull($scope.regData.password) || isPropertyNull($scope.regData.password2) || isPropertyNull($scope.regData.email)) ){
         if($scope.regData.password== $scope.regData.password2) {
             delete $scope.regData.password2;
             $scope.regData.password = CryptoJS.MD5($scope.regData.password).toString();
