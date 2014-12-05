@@ -6,6 +6,7 @@
     <script type="text/javascript" src="<?=$base_url?>bower_components/underscore/underscore-min.js"></script>
     <link rel="stylesheet" type="text/css" href="<?=$base_url?>bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <script type="text/javascript" src="<?=$base_url.$js_path?>selection.js"></script>
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
     
     <script type="text/javascript" src="<?=$base_url?>bower_components/angular-ui-select/dist/select.js"></script>
     <script type="text/javascript" src="<?=$base_url?>bower_components/angular-sanitize/angular-sanitize.min.js"></script>
