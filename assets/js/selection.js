@@ -261,8 +261,11 @@ hsbuilder.controller('modalController', function ($scope, $http, $modal) {
             console.log(data);
             window.location = "/";
         }).error(function (data, status, headers, config) {
-            alert(data['error']);
-            $scope.status = status;
+            $scope.error=data['error'];
+            $modal.open({
+                  templateUrl: 'feedbackerror.html',
+                  controller: 'ModalInstanceCtrl',
+                });
         }); 
   }
     
@@ -270,14 +273,26 @@ hsbuilder.controller('modalController', function ($scope, $http, $modal) {
 });
 hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http, $modal) {
    
-    $scope.status = "ok";
-
+    
+    $scope.errormsg={};
     $scope.logData = {};
     $scope.regData = {};
-    
+    function isPropertyNull(o) {
+        if(o === ""){
+            return true;
+        }
+        else if (o === null) {
+            return true;
+        }
+        else if( typeof o === 'undefined' ) {
+            return true;
+        }
+        return false;
+        
+    }
     //login
     $scope.submit = function () {
-  
+        if(!(isPropertyNull($scope.logData.username) && isPropertyNull($scope.logData.password)) ){
         $scope.logData.password = CryptoJS.MD5($scope.logData.password).toString();
         $http({
             url: '/account/login',
@@ -289,15 +304,20 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
             console.log(data);
             window.location = "/account/profile";
         }).error(function (data, status, headers, config) {
-            alert(data['error']);
-            $scope.status = status;
+           console.log(status);
+            $modal.open({
+                  templateUrl: 'loginerror.html',
+                  controller: 'ModalInstanceCtrl',
+                });
         });        
-    
+        }else {
+            
+        }
     };
     
     //create user
     $scope.submit2 = function () {
-        console.log("hallo");
+        if(!(isPropertyNull($scope.regData.username) && isPropertyNull($scope.regData.password) && isPropertyNull($scope.regData.password2) && isPropertyNull($scope.regData.email)) ){
         if($scope.regData.password== $scope.regData.password2) {
             delete $scope.regData.password2;
             $scope.regData.password = CryptoJS.MD5($scope.regData.password).toString();
@@ -316,12 +336,19 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
                  
             }).error(function (data, status, headers, config) {
                  $modalInstance.dismiss('cancel');
+                 console.log(status);
                  $modal.open({
                   templateUrl: 'error.html',
                   controller: 'ModalInstanceCtrl',
                 });
                   
             });
+            }else{
+            //pass dont match
+            }
+        }else{
+            //null fields
+            
         }
     
   };

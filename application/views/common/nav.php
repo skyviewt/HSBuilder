@@ -32,11 +32,11 @@
       <form role="form">
           <div class="form-group">
             <label for="email">Username OR Email address</label>
-            <input type="text" class="form-control" ng-model="logData.identity" placeholder="Enter Username Or Email" />
+            <input type="text" class="form-control" required name="text" ng-model="logData.identity" placeholder="Enter Username Or Email" />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" ng-model="logData.password" placeholder="Password" />
+            <input type="password" class="form-control"required name="password" ng-model="logData.password" placeholder="Password" />
           </div>
             <div class="center">
             
@@ -81,6 +81,7 @@
          
                 <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Cancel</button>
             </div>
+            <p>{{errormsg}}</p>
     </form>
             
         </div>
@@ -108,6 +109,19 @@
         </div>
         <div class="modal-body center">
              <p>Your account could not be registered at the moment. Please try again shortly.</p>
+             <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Ok</button>
+
+            </div>
+   
+      </div>
+    </script>
+    <script type="text/ng-template" id="loginerror.html">
+    <div id="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Oops...</h3>
+        </div>
+        <div class="modal-body center">
+             <p>Could not be logged in. Make sure you have the right password and username/email combination.</p>
              <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Ok</button>
 
             </div>
