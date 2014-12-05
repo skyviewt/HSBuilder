@@ -492,4 +492,59 @@ padding: 5px;
 .runcontainer {
     padding: 3%;
 }
-
+.winloss-input {
+   
+text-align: center;
+font-family: 'Roboto';
+font-weight: 800;
+/*background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#A359E7), color-stop(100%,#372177));
+box-shadow: inset 0px 0px 6px #3E4BA1;
+-webkit-box-shadow: inset 0px 0px 6px #3E4BA1;
+border: none;*/
+color: rgb(234, 233, 234);
+text-shadow: 0px 1px #0F106C;
+   
+background: rgba(115, 95, 173, 0.4);
+border-radius: 30px;
+border: 3px solid #735FAD;
+box-shadow: inset 0 0 15px #1D1535;
+   
+}
+.number-group {
+    padding-top: 15px;
+}
+.winloss-group label, input {
+     padding: 5px;
+    
+}
+.winloss-group {
+   margin: 5px;
+}
+.runtitle {
+    font-family: 'Montserrat';
+text-shadow: -1px 0px rgb(184, 180, 174), 0px 1px rgb(184, 180, 174), 1px 0px rgb(184, 180, 174), 0px -1px rgb(184, 180, 174);
+color: #443211;
+    text-align:center;
+}
+.username {
+    font-family: 'Montserrat';
+    color: #F9F9F9;
+text-transform: capitalize;
+font-size: 120%;
+}
+.updateBtn{
+    text-align: center;
+padding: 10px 17px 10px 17px;
+font-family: 'Montserrat';
+color: #C2A871;
+border-radius: 7px;
+background: -webkit-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
+background: -o-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
+background: -moz-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
+background: linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
+border: 3px solid #64380E;
+font-size: 120%;
+font-weight: 800;
+text-shadow: 1px 1px #221630;
+    margin-top: 15px;
+}

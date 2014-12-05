@@ -22,7 +22,8 @@ class Account extends CI_Controller {
     public function profile()
     {
         $this->is_logged_in();
-        
+        $this->load->library('session');
+		$data['username'] = $this->session->userdata('username');
         $data['base_url'] = config_item('base_url');
         $data['title'] = "HS Arena DeckBuilder";
         $data['css_path'] = config_item('css_path');
@@ -33,7 +34,7 @@ class Account extends CI_Controller {
         $data['selectedCards'] = $this->input->get('cards', TRUE);
         
         $this->load->view('common/head', $data);
-		$this->load->view('common/nav');
+		$this->load->view('common/nav', $data);
 		$this->load->view('account', $data);
     }
     
@@ -97,5 +98,7 @@ class Account extends CI_Controller {
 			echo 'You don\'t have permission to access this page. <a href="/">Login</a>';	
 			die();		
 		}		
-	}	
+	}
+  
+    
 }

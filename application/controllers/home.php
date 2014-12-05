@@ -21,7 +21,8 @@ class Home extends CI_Controller {
 	public function index()
 	{	
 		//head info
-		    
+		       $this->load->library('session');
+		$data['status'] = $this->session->userdata('logged_in');
     $data['base_url'] = config_item('base_url');
     $data['title'] = "HS Arena DeckBuilder";
     $data['css_path'] = config_item('css_path');
@@ -30,7 +31,7 @@ class Home extends CI_Controller {
     $data['img_path'] = config_item('img_path');
 		
 		$this->load->view('common/head', $data);
-		$this->load->view('common/nav');
+		$this->load->view('common/nav', $data);
 		$this->load->view('index', $data);
         
 	}
@@ -48,6 +49,8 @@ class Home extends CI_Controller {
 
     public function selection()
     {
+           $this->load->library('session');
+		$data['status'] = $this->session->userdata('logged_in');
     $data['base_url'] = config_item('base_url');
     $data['title'] = "HS Arena DeckBuilder";
     $data['css_path'] = config_item('css_path');
@@ -58,13 +61,15 @@ class Home extends CI_Controller {
     $data['selectedCards'] = $this->input->get('cards', TRUE);
         
        $this->load->view('common/head', $data);
-		$this->load->view('common/nav');
+		$this->load->view('common/nav', $data);
 		$this->load->view('selection', $data);
     }
     
     
     public function account()
     {
+        $this->load->library('session');
+		$data['status'] = $this->session->userdata('logged_in');
     $data['base_url'] = config_item('base_url');
     $data['title'] = "HS Arena DeckBuilder";
     $data['css_path'] = config_item('css_path');
@@ -75,7 +80,7 @@ class Home extends CI_Controller {
     $data['selectedCards'] = $this->input->get('cards', TRUE);
         
        $this->load->view('common/head', $data);
-		$this->load->view('common/nav');
+		$this->load->view('common/nav', $data);
 		$this->load->view('account', $data);
     }
 
@@ -86,4 +91,5 @@ class Home extends CI_Controller {
 	{
 		echo 'to be implement';
 	}
+  
 }
