@@ -191,7 +191,8 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select','ui.boots
 hsbuilder.directive('errSrc', function() {
 return {
    link: function(scope, element, attrs) {
-     element.bind('error', function() {        if (attrs.src != attrs.errSrc) {
+     element.bind('error', function() {        
+         if (attrs.src != attrs.errSrc) {
          attrs.$set('src', attrs.errSrc);
         }
       });
@@ -265,7 +266,7 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
         if($scope.regData.password== $scope.regData.password2) {
             delete $scope.regData.password2;
              $http({
-            url: 'api/users',
+            url: '/api/users/',
             method: "POST",
             data: $scope.regData,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}

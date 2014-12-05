@@ -52,7 +52,7 @@
       <form role="form">
           <div class="form-group">
             <label>Username</label>
-            <input type="text" class="form-control" ng-model="regData.name" placeholder="Enter Username" />
+            <input type="text" class="form-control" ng-model="regData.username" placeholder="Enter Username" />
           </div>
           <div class="form-group">
             <label for="email">Email address</label>
