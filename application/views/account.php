@@ -47,7 +47,7 @@
                 <img class="medal" src="<?=$base_url.$img_path?>MasterMedal.png"/>
             </div>
             
-            <div class="classimgdiv center"  ng-if="(r.wins == 12) && (r.wins != 0)">
+            <div class="classimgdiv center"  ng-if="(r.wins == 12) && (r.losses != 0)">
                 <img class="medal" src="<?=$base_url.$img_path?>MasterMedal.png"/>
             </div>
            

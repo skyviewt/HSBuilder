@@ -7,7 +7,7 @@
         <div class="col-xs-12 col-sm-12 col-md-3 center">
             <div class="ih-item circle effect1 pull-right"><a target="_blank" href="http://jingdesign.ca/">
                 <div class="spinner neutral"></div>
-                <div class="img"><img src="<?=$base_url.$img_path?>yunjing.jpg" alt="img"></div>
+                <div class="img"><img src="<?=$base_url.$img_path?>yunjing1.jpg" alt="img"></div>
                 <div class="info">
                  
                 </div></a></div>

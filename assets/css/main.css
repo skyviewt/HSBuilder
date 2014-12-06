@@ -230,9 +230,9 @@ padding-bottom: 5%;
 }
 .devname {
     margin-top:25px;
-    color: #5F5966;
+    color: #4E3C64;
 font-family: "Montserrat";
-    text-shadow: none;
+   
 }
 .cardpick p {
     font-family:'Roboto';
@@ -529,6 +529,57 @@ border: none;*/
     border-radius: 7px;
     background: -webkit-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
     background: -o-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
+    background: -moz-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
+    background: linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
+    border: 3px solid #64380E;
+    font-size: 120%;
+    font-weight: 800;
+    text-shadow: 1px 1px #221630;
+    margin-top: 15px;
+    -moz-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+.updateBtn:hover {
+    background: -webkit-linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
+    background: -o-linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
+    background: -moz-linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
+    background: linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
+    color: #D0BE05;
+    text-shadow: 1px 1px 5px #D77300;
+    -moz-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+.top {
+    padding-top:5%;
+}
+.neutral {
+    border: 5px solid #A09B97 !important;
+border-right-color: #68646B !important;
+border-bottom-color: #3D3141 !important;
+}
+.personal-row {
+    width:85%;
+    margin: 0 auto;
+    padding-top: 5%;
+}
+.devtext {
+line-height: 2;
+font-family: 'Lato';
+color: #9E9E9E;
+font-weight: 400;
+font-size: 120%;
+width: 90%;
+}
+.devtext a {
+    color: whitesmoke;
+    font-size: 110%;
+}
+.devtext .nolink:hover {
+    cursor:auto;
+    text-decoration: none;
+}(41, 26, 47));
     background: -moz-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
     background: linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
     border: 3px solid #64380E;
