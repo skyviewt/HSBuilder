@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 03, 2014 at 03:10 AM
+-- Generation Time: Dec 06, 2014 at 03:18 AM
 -- Server version: 5.6.15
 -- PHP Version: 5.5.15
 
@@ -710,14 +710,29 @@ INSERT INTO `cards` (`id`, `name`, `type`, `text`, `faction`, `rarity`, `cost`, 
 
 CREATE TABLE IF NOT EXISTS `runs` (
   `run_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL DEFAULT 'Custom Arena Run',
   `user_id` int(11) NOT NULL,
+  `player_class` varchar(255) NOT NULL,
   `cards` varchar(255) NOT NULL,
-  `wins` int(11) NOT NULL,
+  `wins` int(11) NOT NULL DEFAULT '0',
   `losses` int(11) NOT NULL DEFAULT '3',
   `rewards` varchar(255) NOT NULL,
   PRIMARY KEY (`run_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `runs`
+--
+
+INSERT INTO `runs` (`run_id`, `name`, `user_id`, `player_class`, `cards`, `wins`, `losses`, `rewards`) VALUES
+(1, '3r24', 3, 'mage', '9,9,9,9,9,7,7,7,7,7', 0, 0, ''),
+(2, 'test', 3, 'mage', '7,7,7,7,7,9,9,9,9,9', 9, 3, ''),
+(3, 'fewfawf', 3, 'mage', '7,7,7,7,7,9,9,9,9,9,146,146,146,146,146,146,146,146,146,146,146,146,146,146', 10, 3, 'hahaha'),
+(4, 'I am too good!', 4, 'mage', '8,8,68,68,68,68,68,68,205,205,205,146,146,146,72,72,72,250,462,74,74,492,492,617,806,806,806,760,760,760', 12, 2, '1000 golds!'),
+(5, 'I suck...', 4, 'mage', '130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130', 1, 3, 'nothing'),
+(6, '21e', 3, 'mage', '66,66,66,66,66,66,66,66', 0, 3, '312ef'),
+(7, 'r32r', 3, 'mage', '66,66,66,66,66,66,66,66', 0, 2, 'ferf');
 
 -- --------------------------------------------------------
 
@@ -730,8 +745,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`) VALUES
+(1, 'shhe', '5eac43aceba42c8757b54003a58277b5', 'shaohanghe91@gmail.com'),
+(2, 'hdjsiu', '5eac43aceba42c8757b54003a58277b5', 'shaohanghe@gmail.com'),
+(3, 'user', '81dc9bdb52d04dc20036dbd8313ed055', 'sifea@fersf.com'),
+(4, 'user2', '827ccb0eea8a706c4c34a16891f84e7b', 'fjafj@frdij.com');
 
 -- --------------------------------------------------------
 

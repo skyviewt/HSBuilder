@@ -5,12 +5,28 @@
 * Time: 12:40 AM
 * To change this template use Tools | Templates.
 */
-hsbuilder.controller('accountController', function ($scope) {
-    $scope.runs= [{'run_id':1, 'user_id':2, 'cards':[66,146,250], 'wins': 7, 'losses':2}, 
-                  {'run_id':2, 'user_id':2, 'cards':[66,146,250], 'wins': 3, 'losses':2}
-                 ];
+hsbuilder.controller('accountController', function ($scope, $http) {
+
+    $scope.runs = [];
     
+    $scope.setup = function(user_id){
+        
+        //get neutral cards
+        $http.get("/api/runs/user_id/" + user_id + ".json").
+        success(function(data, status,headers,config) {
+            $scope.runs = data;
+        }).
+        error(function(data, status,headers,config) {
+            //TODO: handle errors here!
+        });  
+        
+    }
     
+    $scope.parse = function(str){
+        
+        return parseInt(str);
+    }
+  
 });
    
 

@@ -2,7 +2,9 @@
 //model for retrieving cards. Note that this is a read-only model
 class Run_model extends CI_Model {
     
+    private $name = "Custom";
     private $user_id = 0;
+    private $player_class = "";
     private $cards = "";
     private $wins = 0;
     private $losses = 0;
@@ -16,7 +18,9 @@ class Run_model extends CI_Model {
     
     public function setParam($data)
     {
+        $this->name = $data['name'];
         $this->user_id = $data['user_id'];
+        $this->player_class = $data['player_class'];
         $this->cards = $data['cards'];
         $this->wins = $data['wins'];
         $this->losses = $data['losses'];
@@ -28,7 +32,9 @@ class Run_model extends CI_Model {
         try 
         {
             $this->db->insert('runs', array(
+                                        'name' => $this->name,
                                         'user_id' => $this->user_id,
+                                        'player_class' => $this->player_class,
                                         'cards' => $this->cards,
                                         'wins' => $this->wins,
                                         'losses' => $this->losses,

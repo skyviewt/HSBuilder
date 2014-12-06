@@ -49,8 +49,7 @@
         </div>
       </div>
     </script>
-
-
+    
 <script type="text/ng-template" id="signup.html">
     <div id="modal">
         <div class="modal-header">

@@ -9,9 +9,11 @@
 
 var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select','ui.bootstrap']);
 
- hsbuilder.controller('selectionController', function($scope, $http) {
+ hsbuilder.controller('selectionController', function($scope, $http, $rootScope) {
      $scope.totalValue = 0;
      $scope.deferedValue = -1;
+     $scope.user_id = 0;
+     
      var pushCardsStates = function(){
          
         var selectedCardsString = $scope.selectedCards.map(function(c){
@@ -23,7 +25,7 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select','ui.boots
             return temp.join(',');
         }).join(',');
         
-        
+        $rootScope.selectedCardsString = selectedCardsString;
         
             window.history.pushState($scope.selectedCards, 
                                      $scope.selectedCards, 
@@ -40,11 +42,14 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select','ui.boots
     $scope.card3 = {};
     
     $scope.selectedCards=[];
+    $rootScope.selectedCardsString = ""; 
 
     $scope.cards = [];
         
-    $scope.setup = function(playerClass, selectedCards){
+    $scope.setup = function(playerClass, selectedCards, user_id){
         $scope.playerClass = playerClass;
+        $scope.user_id = user_id;
+        
         var processInputCards = function(data){
             selectedCards.map(function(str){
                 
@@ -92,7 +97,7 @@ var hsbuilder = angular.module('hsbuilder', ['ngSanitize', 'ui.select','ui.boots
     $scope.count = 0;
     $scope.manaCount = {'0':0,'1':0,'2':0,'3':0, '4':0,'5':0, '6':0, '7':0};
     $scope.effects = {'battlecry':0,'taunt':0, 'deathrattle':0, 'charge':0, 'enrage':0, 'overload':0, 'stealth':0, 'windfury':0, 'spell damage':0};
-    
+     
      $scope.addCard = function (card, value) {
 
         var isSelected = false;
@@ -238,10 +243,11 @@ hsbuilder.controller('modalController', function ($scope, $http, $modal) {
       templateUrl: 'login.html',
       controller: 'ModalInstanceCtrl',
       size: size,
-    });
+     });
 
-  };
-    $scope.signup = function (size) {
+    };
+    
+   $scope.signup = function (size) {
    
     var modalInstance = $modal.open({
       templateUrl: 'signup.html',
@@ -250,6 +256,16 @@ hsbuilder.controller('modalController', function ($scope, $http, $modal) {
     });
 
   };
+    
+  $scope.getSaveRunForm = function(size){
+      
+      var modalInstance = $modal.open({
+      templateUrl: 'saverun.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+    });
+      
+  }
     
   $scope.logout = function(){
           $http({
@@ -271,12 +287,13 @@ hsbuilder.controller('modalController', function ($scope, $http, $modal) {
     
    
 });
-hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http, $modal) {
+hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http, $modal,  $rootScope) {
    
     
     $scope.errormsg={};
     $scope.logData = {};
     $scope.regData = {};
+    $scope.arenaRun = {};
     function isPropertyNull(o) {
         if(o === ""){
             return true;
@@ -290,9 +307,49 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
         return false;
         
     }
+    
+     $scope.saveRun = function (player_class, user_id) {
+         
+        if(!(isPropertyNull($scope.arenaRun.name)) && !(isPropertyNull($scope.arenaRun.wins)) && !(isPropertyNull($scope.arenaRun.losses)) ){
+        
+        $scope.arenaRun.user_id = user_id;
+        $scope.arenaRun.player_class = player_class;
+        $scope.arenaRun.cards = $rootScope.selectedCardsString;
+            
+        if(isPropertyNull($scope.arenaRun.rewards))
+        {
+            $scope.arenaRun.rewards = "";
+        }
+            
+        $http({
+            url: '/api/runs.json',
+            method: "POST",
+            data: $scope.arenaRun,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function (data, status, headers, config) {
+            $modalInstance.dismiss('cancel');
+            $modal.open({
+                templateUrl: 'runSaved.html',
+                controller: 'ModalInstanceCtrl',
+            });
+        }).error(function (data, status, headers, config) {
+           /*console.log(status);
+            $modal.open({
+                  templateUrl: 'loginerror.html',
+                  controller: 'ModalInstanceCtrl',
+                });*/
+        });        
+        }else {
+            
+        }
+    };
+    
+    
     //login
     $scope.submit = function () {
         if(!(isPropertyNull($scope.logData.username) && isPropertyNull($scope.logData.password)) ){
+            
+        var tmpPass = $scope.logData.password;
         $scope.logData.password = CryptoJS.MD5($scope.logData.password).toString();
         $http({
             url: '/account/login',
@@ -304,8 +361,10 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
             console.log(data);
             window.location = "/account/profile";
         }).error(function (data, status, headers, config) {
-           console.log(status);
-            $modal.open({
+           
+           $scope.logData.password = tmpPass;
+            
+           $modal.open({
                   templateUrl: 'loginerror.html',
                   controller: 'ModalInstanceCtrl',
                 });
@@ -320,8 +379,10 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
         if(!(isPropertyNull($scope.regData.username) || isPropertyNull($scope.regData.password) || isPropertyNull($scope.regData.password2) || isPropertyNull($scope.regData.email)) ){
         if($scope.regData.password== $scope.regData.password2) {
             delete $scope.regData.password2;
+            var tmpPass = $scope.regData.password;
             $scope.regData.password = CryptoJS.MD5($scope.regData.password).toString();
-             $http({
+            
+            $http({
             url: '/api/users.json',
             method: "POST",
             data: $scope.regData,
@@ -331,12 +392,10 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
                  $modal.open({
                   templateUrl: 'ok.html',
                   controller: 'ModalInstanceCtrl',
-                });
-                 
-                 
+                });              
             }).error(function (data, status, headers, config) {
                  $modalInstance.dismiss('cancel');
-                 console.log(status);
+                 $scope.regData.password = tmpPass;
                  $modal.open({
                   templateUrl: 'error.html',
                   controller: 'ModalInstanceCtrl',
@@ -358,4 +417,5 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
      
     $modalInstance.dismiss('cancel');
   };
+
 });

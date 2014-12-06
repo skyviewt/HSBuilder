@@ -2,7 +2,7 @@
  
 
 <div class="start-content">
-    <div class="row"  ng-controller="selectionController" ng-init = "setup('<?=$class?>', '<?=$selectedCards?>')">
+    <div class="row"  ng-controller="selectionController" ng-init = "setup('<?=$class?>', '<?=$selectedCards?>', '<?=$user_id?>')">
 <div class="col-md-9" id="cardSelection">
     <div class="row content-frame">
         <div class="col-md-4 center cardpick"> 
@@ -191,7 +191,56 @@
                         <div class="col-md-5 pull-left no-padding"><span class="badge">{{effects['spell damage']}}</span></div>
                     </div>
                 </div>
-               
+                
+                <?php if ($status == TRUE): ?>
+                    <button class="styling-btn btn btn-default" ng-click="getSaveRunForm()">Save This Arena Run</button>
+                <?php endif; ?>  
+                
+                <script type="text/ng-template" id="saverun.html">
+                    <div id="modal">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Save Your Arena Run</h3>
+                        </div>
+                        <div class="modal-body">
+                      <form role="form">
+                          <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" required name="name" ng-model="arenaRun.name" placeholder="Enter a name for you arena run" />
+                          </div>
+                          <div class="form-group">
+                            <label for="wins">Wins</label>
+                            <input type="number" class="form-control" required name="wins" ng-model="arenaRun.wins" value="0" />
+                          </div>
+                          <div class="form-group">
+                            <label for="losses">Losses</label>
+                            <input type="number" class="form-control" required name="losses" ng-model="arenaRun.losses" value="3" />
+                          </div>
+                          <div class="form-group">
+                            <label for="rewards">Rewards</label>
+                            <input type="text" class="form-control" name="rewards" ng-model="arenaRun.rewards" placeholder="Enter Your Rewards ie. 180 Golds, One Expert Park" />
+                          </div>
+                            <div class="center">            
+                                <button class="styling-btn btn btn-default" ng-click="saveRun('<?=$class?>', '<?=$user_id?>')">Save</button>  
+                                <button class="styling-btn btn btn-default" ng-click="cancel()">Cancel</button>
+                            </div>
+                    </form>
+                        </div>
+                      </div>
+                    </script>
+                
+                    <script type="text/ng-template" id="runSaved.html">
+                    <div id="modal">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Success!</h3>
+                        </div>
+                        <div class="modal-body center">
+                             <p>Your Arena Run is Saved!</p>
+                             <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Ok</button>
+
+                            </div>
+
+                      </div>
+                    </script>
                 
             </div>
         </div>

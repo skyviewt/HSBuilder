@@ -23,6 +23,7 @@ class Account extends CI_Controller {
     {
         $this->is_logged_in();
         $this->load->library('session');
+        $data['user_id'] = $this->session->userdata('user_id');
 		$data['username'] = $this->session->userdata('username');
         $data['status'] = $this->session->userdata('logged_in');
         $data['base_url'] = config_item('base_url');

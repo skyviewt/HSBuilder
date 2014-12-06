@@ -1,6 +1,6 @@
 <script type="text/javascript" src="<?=$base_url.$js_path?>account.js"></script>
 
-<div class="container" ng-controller="accountController">
+<div class="container" ng-controller="accountController" ng-init="setup('<?=$user_id?>')">
     <div class="classname">
 <?php 
     if(isset($username)) {
@@ -14,7 +14,7 @@
     
     <div class="row">
        <div class="col-md-3 runcontainer" ng-repeat="r in runs">
-                   <a href="/home/selection?class=mage&cards=9,9,9,146,146,72,250,662,66,66,66,66,66,713,713,462,716,390,246,593,74,74,74,74,76,205,205,35,297,606">
+                   <a ng-href="/home/selection?class=mage&cards={{r.cards}}">
 
             <div class="classimgdiv center" ng-if="r.wins == 0 || r.wins == null">
                 <img class="medal" src="<?=$base_url.$img_path?>hearthstone1.png"/>
@@ -53,7 +53,7 @@
                 <img class="medal" src="<?=$base_url.$img_path?>CrownMedal.png"/>
             </div>
                         </a>
-            <h4 class="runtitle">Run {{r.run_id}}</h4>
+            <h4 class="runtitle">{{r.name}}</h4>
             <form role="form">
                 <div class="form-group number-group center">
                     <div class="row winloss-group">
@@ -61,7 +61,7 @@
                             <label >Win:</label>
                         </div>
                         <div class="col-md-8">
-                            <input class="winloss-input" type="number" min="0" max="12" ng-model="r.wins" name="{{r.run_id}}" class="form-control"/>
+                            <input class="winloss-input" type="number" min="0" max="12" ng-model="parse(r.wins)" name="{{r.run_id}}" class="form-control"/>
 
                         </div>
 
@@ -72,12 +72,13 @@
                             <label >Loss:</label>
                         </div>
                         <div class="col-md-8">
-                            <input class="winloss-input" type="number" min="0" max="3" ng-model="r.losses" name="{{r.run_id}}" class="form-control"/>
+                            <input class="winloss-input" type="number" min="0" max="3" ng-model="parse(r.losses)" name="{{r.run_id}}" class="form-control"/>
 
                         </div>
 
                     </div>
-                   <button class="updateBtn">Update</button>
+                   <!-- will implement update later -->
+                   <!-- <button class="updateBtn">Update</button> -->
                 </div>
                 
         </form>

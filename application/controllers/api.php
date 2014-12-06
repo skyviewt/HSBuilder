@@ -97,7 +97,7 @@ class Api extends REST_Controller {
     }
     
     // /api/runs/user_id/{id}
-    public function run_get()
+    public function runs_get()
     {
         $this->load->model('Run_model', 'run', TRUE);
         
@@ -111,8 +111,8 @@ class Api extends REST_Controller {
         }
     }
     
-    // /api/runs/user_id/{id}
-    public function run_post()
+    // /api/runs/
+    public function runs_post()
     {
         $this->load->model('Run_model', 'run', TRUE);
         $this->run->setParam(json_decode(file_get_contents('php://input'),true));
@@ -120,6 +120,10 @@ class Api extends REST_Controller {
         if($this->run->add_run())
         {
            $this->response(array('success' => "Arena Run Saved"), 200);
+        }
+        else
+        {
+           $this->response(array('error' => "Something is wrong"), 500);
         }
     }
  

@@ -23,6 +23,8 @@ class Home extends CI_Controller {
 		//head info
 		$this->load->library('session');
 		$data['status'] = $this->session->userdata('logged_in');
+        $data['user_id'] = $this->session->userdata('user_id');
+		$data['username'] = $this->session->userdata('username');
         $data['base_url'] = config_item('base_url');
         $data['title'] = "HS Arena DeckBuilder";
         $data['css_path'] = config_item('css_path');
@@ -49,8 +51,10 @@ class Home extends CI_Controller {
 
     public function selection()
     {
-           $this->load->library('session');
+        $this->load->library('session');
 		$data['status'] = $this->session->userdata('logged_in');
+        $data['user_id'] = $this->session->userdata('user_id');
+		$data['username'] = $this->session->userdata('username');
         $data['base_url'] = config_item('base_url');
         $data['title'] = "HS Arena DeckBuilder";
         $data['css_path'] = config_item('css_path');
@@ -60,7 +64,7 @@ class Home extends CI_Controller {
         $data['class'] = $this->input->get('class', TRUE);
         $data['selectedCards'] = $this->input->get('cards', TRUE);
         
-       $this->load->view('common/head', $data);
+        $this->load->view('common/head', $data);
 		$this->load->view('common/nav', $data);
 		$this->load->view('selection', $data);
     }
@@ -70,14 +74,14 @@ class Home extends CI_Controller {
     {
         $this->load->library('session');
 		$data['status'] = $this->session->userdata('logged_in');
-    $data['base_url'] = config_item('base_url');
-    $data['title'] = "HS Arena DeckBuilder";
-    $data['css_path'] = config_item('css_path');
-    $data['js_path'] = config_item('js_path');
-    $data['css_files'] = array('hover.css', 'main.css');
-    $data['img_path'] = config_item('img_path');
-    $data['class'] = $this->input->get('class', TRUE);
-    $data['selectedCards'] = $this->input->get('cards', TRUE);
+        $data['base_url'] = config_item('base_url');
+        $data['title'] = "HS Arena DeckBuilder";
+        $data['css_path'] = config_item('css_path');
+        $data['js_path'] = config_item('js_path');
+        $data['css_files'] = array('hover.css', 'main.css');
+        $data['img_path'] = config_item('img_path');
+        $data['class'] = $this->input->get('class', TRUE);
+        $data['selectedCards'] = $this->input->get('cards', TRUE);
         
        $this->load->view('common/head', $data);
 		$this->load->view('common/nav', $data);
