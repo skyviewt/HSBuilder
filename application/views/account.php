@@ -11,7 +11,9 @@
 }?>
         
     </div>
-    
+    <div class="center">
+        <a href="/home/index"><button class="updateBtn">Create a new deck</button></a>
+    </div>
     <div class="row">
        <div class="col-md-3 runcontainer" ng-repeat="r in runs">
                    <a ng-href="/home/selection?class=mage&cards={{r.cards}}">
@@ -89,5 +91,7 @@
               
          
     </div>
+    
+</div> </div>
     
 </div>

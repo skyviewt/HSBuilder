@@ -548,3 +548,12 @@ font-weight: 800;
 text-shadow: 1px 1px #221630;
     margin-top: 15px;
 }
+.updateBtn:hover {
+    background: -webkit-linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
+background: -o-linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
+background: -moz-linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
+background: linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
+color: #D0BE05;
+text-shadow: 1px 1px 5px #D77300;
+}
+}

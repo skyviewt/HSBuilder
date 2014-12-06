@@ -192,9 +192,7 @@
                     </div>
                 </div>
                 
-                <?php if ($status == TRUE): ?>
-                    <button class="styling-btn btn btn-default" ng-click="getSaveRunForm()">Save This Arena Run</button>
-                <?php endif; ?>  
+               
                 
                 <script type="text/ng-template" id="saverun.html">
                     <div id="modal">
@@ -209,11 +207,11 @@
                           </div>
                           <div class="form-group">
                             <label for="wins">Wins</label>
-                            <input type="number" class="form-control" required name="wins" ng-model="arenaRun.wins" value="0" />
+                            <input type="number" class="form-control" min="0" max="12" required name="wins" ng-model="arenaRun.wins" value="0" />
                           </div>
                           <div class="form-group">
                             <label for="losses">Losses</label>
-                            <input type="number" class="form-control" required name="losses" ng-model="arenaRun.losses" value="3" />
+                            <input type="number" class="form-control" min="0" max="3" required name="losses" ng-model="arenaRun.losses" value="3" />
                           </div>
                           <div class="form-group">
                             <label for="rewards">Rewards</label>
@@ -268,7 +266,12 @@
                 
                 </li>
         </div>
-        
+         <?php if ($status == TRUE): ?>
+        <div class="center">
+           <button class="updateBtn" ng-click="getSaveRunForm()">Save This Arena Run</button>
+
+        </div>
+                <?php endif; ?>  
     </div>
         </div>
     
