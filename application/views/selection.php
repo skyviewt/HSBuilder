@@ -2,7 +2,7 @@
  
 
 <div class="start-content">
-    <div class="row"  ng-controller="selectionController" ng-init = "setup('<?=$class?>', '<?=$selectedCards?>', '<?=$user_id?>')">
+    <div class="row" ng-controller="selectionController" ng-init = "setup('<?=$class?>', '<?=$selectedCards?>', '<?=$user_id?>')">
 <div class="col-md-9" id="cardSelection">
     <div class="row content-frame">
         <div class="col-md-4 center cardpick"> 
@@ -153,6 +153,8 @@
                         <div class="col-md-5 pull-left no-padding"><span class="badge">{{effects.charge}}</span></div>
                     </div>
                 </div>
+            </div>
+        <div class="row">
                 <div class="col-md-4">
                     <div class="row">
                         <div class="col-md-7  no-padding"><p>Deathrattle: </p></div>
@@ -173,6 +175,8 @@
                     </div>
                     
                 </div>
+        </div>
+        <div class="row">
                 <div class="col-md-4">
                     <div class="row">
                         <div class="col-md-7 no-padding"><p>Stealth: </p></div>
@@ -191,10 +195,46 @@
                         <div class="col-md-5 pull-left no-padding"><span class="badge">{{effects['spell damage']}}</span></div>
                     </div>
                 </div>
+      
+            </div>
+        </div>
+        
+        </div>
+    </div>
+    
+    <div class="col-md-3" >
+        <div  id="deckdiv">
+            <div id="deckcount">
+                <p>Deck: <span>{{count}}</span> / 30 cards</p>
+                <p>Total Value: <span>{{totalValue}}</span></p>
+            </div>
+            <li ng-repeat="c in selectedCards">
+            <div class="deck screenshot">
+                <div class="pull-left deck-caption">
+                    <div class="deck-cost">{{c.card.cost}}</div>
+                    <div style="float:left;padding: 4px">{{c.card.name}}&nbsp;x{{c.cardNum}}</div>
+                </div>
+                <div class="pull-right deck-pic" style="background: url('{{c.card.image}}'); background-position: -75px -100px; background-size: 260%;">
+                    <div class="deck-fade"></div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
                 
-               
-                
-                <script type="text/ng-template" id="saverun.html">
+                </li>
+        </div>
+         <?php if ($status == TRUE): ?>
+        <div class="center">
+           <button class="updateBtn" ng-click="getSaveRunForm()">Save This Arena Run</button>
+
+        </div>
+                <?php endif; ?>  
+    </div>
+        </div>
+    
+   
+  
+</div>
+ <script type="text/ng-template" id="saverun.html">
                     <div id="modal">
                         <div class="modal-header">
                             <h3 class="modal-title">Save Your Arena Run</h3>
@@ -239,46 +279,6 @@
 
                       </div>
                     </script>
-                
-            </div>
-        </div>
-        
-        </div>
-    </div>
-    
-    <div class="col-md-3" >
-        <div  id="deckdiv">
-            <div id="deckcount">
-                <p>Deck: <span>{{count}}</span> / 30 cards</p>
-                <p>Total Value: <span>{{totalValue}}</span></p>
-            </div>
-            <li ng-repeat="c in selectedCards">
-            <div class="deck screenshot">
-                <div class="pull-left deck-caption">
-                    <div class="deck-cost">{{c.card.cost}}</div>
-                    <div style="float:left;padding: 4px">{{c.card.name}}&nbsp;x{{c.cardNum}}</div>
-                </div>
-                <div class="pull-right deck-pic" style="background: url('{{c.card.image}}'); background-position: -75px -100px; background-size: 260%;">
-                    <div class="deck-fade"></div>
-                </div>
-                <div style="clear:both;"></div>
-            </div>
-                
-                </li>
-        </div>
-         <?php if ($status == TRUE): ?>
-        <div class="center">
-           <button class="updateBtn" ng-click="getSaveRunForm()">Save This Arena Run</button>
-
-        </div>
-                <?php endif; ?>  
-    </div>
-        </div>
-    
-   
-  
-</div>
-
 </body>
 </html>
    

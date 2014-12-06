@@ -18,8 +18,8 @@
             <li><a ng-click="logout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out</a></li>
           <?php endif; ?>
           
-          <li><a ><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Stats</a></li>
-          <li><a ><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> About</a></li>
+          <li><a ng-click="toimplement()"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Stats</a></li>
+          <li><a href="/home/about"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> About</a></li>
       </ul>
     </nav>
     
@@ -121,6 +121,20 @@
         </div>
         <div class="modal-body center">
              <p>Could not be logged in. Make sure you have the right password and username/email combination.</p>
+             <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Ok</button>
+
+            </div>
+   
+      </div>
+    </script>
+    
+     <script type="text/ng-template" id="toimplement.html">
+    <div id="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Hey!</h3>
+        </div>
+        <div class="modal-body center">
+             <p>This functionality is to be implementated outside the scope of this class. Keep updated for more :)!</p>
              <button type="submit" class="styling-btn btn btn-default" ng-click="cancel()">Ok</button>
 
             </div>

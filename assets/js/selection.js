@@ -284,10 +284,16 @@ hsbuilder.controller('modalController', function ($scope, $http, $modal) {
                 });
         }); 
   }
+     $scope.toimplement = function (){
+       $modal.open({
+                  templateUrl: 'toimplement.html',
+                  controller: 'ModalInstanceCtrl',
+                });
+   };
     
    
 });
-hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http, $modal,  $rootScope) {
+hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $http, $modal, $rootScope) {
    
     
     $scope.errormsg={};
@@ -407,11 +413,14 @@ hsbuilder.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $htt
             document.getElementById('password1').setCustomValidity('Passwords must match.');
             }
         }else{
-            //null fields
+            //null fields 
+            //do nothing html5 form validation will trigger
             
         }
     
   };
+    
+
 
   $scope.cancel = function () {
      

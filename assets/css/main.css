@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,100,700,900);
  @import url(http://fonts.googleapis.com/css?family=Skranji);
- @import url(http://fonts.googleapis.com/css?family=Montserrat);
+ @import url(http://fonts.googleapis.com/css?family=Montserrat:300,400);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
  body {
     background-image: url('../img/bg.png');
     background-repeat: repeat, no-repeat;
@@ -53,11 +54,9 @@ li, ul {
     padding-top: 1%;
     /*margin-top: 35px;*/
 }
-#class-group {
-    padding-top:15px;
-}
+
 #logo img {
-   height: 60px;
+    height: 60px;
 }
 #logo:hover {
     -webkit-transform: scale3d(1.05, 1.05, 1.05);
@@ -78,35 +77,36 @@ a {
 .navbar-collapse.collapse {
     border-bottom: 1px solid #202330;
     background: -webkit-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
-    
     background: -o-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
-    
     background: -moz-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
-   
     background: linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
-    
 }
 .nav > li > a {
     font-size: 18px;
     color: #2C1F04;
     text-shadow: -1px 1px 0 #5E453B;
+    -moz-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 .nav > li > a >span {
     margin-right: 3px;
- 
 }
 .nav > li > a:not(#logo):hover, .nav > li > a:not(#logo):focus {
     background-color: transparent;
     text-shadow: -1px 0px 5px #B0490A;
     box-shadow: 0px 0px 22px rgba(68, 36, 0, 0.74) inset;
     color: #E0C083;
-    border-left:1px solid #422F0B;
-    border-right:1px solid #422F0B;
+    /*border-left:1px solid #422F0B;
+    border-right:1px solid #422F0B;*/
+    -moz-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 .frame {
-    max-width: 70%;
+    max-width: 75%;
     margin: 0 auto;
-    padding: 8%;
+    padding-left: 0 !important;
     background: url('../img/frame.png') center center no-repeat;
     margin-top: 30px;
     background-color: transparent;
@@ -129,6 +129,8 @@ html, body {
     border-image: url("../img/frame1.png") 17 20 stretch;
     border-width: 17px 20px;
     box-shadow: inset 0px 0px 100px #080601;
+    margin-left:5%;
+        border-color: rgba(47, 42, 51, 1);
 }
 .text-muted {
     color: #aaa2a5 !important;
@@ -140,39 +142,41 @@ html, body {
     padding: 0;
 }
 .ui-select {
-   
     font-family:'Montserrat';
     margin: 0 auto;
     z-index: 10;
-    
 }
 .ui-select span:hover {
     color: white;
 }
 .ui-select > button {
-      background: #422C1D;
+    background: #422C1D;
     color: #DABC86;
     font-family:'Montserrat';
     border: 2px solid #80520B;
     border-radius: 2px;
 }
 .ui-select-bootstrap .ui-select-choices-row>a {
-
     color: #b5afb5 !important;
 }
 ui-select-bootstrap .ui-select-choices-row>a:hover {
-
     color: white !important;
 }
 .ui-select-bootstrap .ui-select-choices-row.active>a {
     background-color: #735FAD !important;
 }
 .ui-select-bootstrap > .ui-select-choices {
-max-height: 350px !important; 
+    max-height: 350px !important;
 }
 .start-content {
-    margin-top: 2%;
-    margin-left: 4%;
+    padding-top: 5%;
+   
+    padding-bottom: 5%;
+}
+#class-group {
+    margin: 0 auto;
+    width: 75%;
+padding-bottom: 5%;
 }
 .place-card {
     height: 350px;
@@ -219,14 +223,19 @@ max-height: 350px !important;
     font-weight: 800;
     text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rgb(137, 119, 103), 0px -1px rgb(137, 119, 103);
 }
-.cardpick h4{
-    font-family: 'Montserrat';
-
+.cardpick h4, .devname {
+    font-family:'Montserrat';
     text-shadow: -1px 0px rgb(184, 180, 174), 0px 1px rgb(184, 180, 174), 1px 0px rgb(184, 180, 174), 0px -1px rgb(184, 180, 174);
     color: #443211;
 }
-.cardpick p{
-    font-family: 'Roboto';
+.devname {
+    margin-top:25px;
+    color: #5F5966;
+font-family: "Montserrat";
+    text-shadow: none;
+}
+.cardpick p {
+    font-family:'Roboto';
     font-weight: 800;
     color: #A87842;
     text-shadow: -1px 0px rgb(0, 0, 0), 0px 1px rgb(0, 0, 0), 1px 0px rgb(0, 0, 0), 0px -1px rgb(0, 0, 0);
@@ -241,13 +250,11 @@ max-height: 350px !important;
     top: 0;
     right: 0;
 }
-
 #deckdiv {
     width: 85%;
     margin: 0 auto;
     padding-bottom: 1.5em;
 }
-
 .deck {
     background: #eeeeee;
     border: 1px solid #6E5233;
@@ -260,7 +267,6 @@ max-height: 350px !important;
     border-bottom-right-radius: 6px;
     border-top-right-radius: 6px;
     cursor: pointer;
-    
 }
 .deck-caption {
     padding: 0px;
@@ -335,7 +341,6 @@ div#deckcount p:last-child {
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
-    
 }
 .barfill {
     transition: all 0.5s ease-in-out;
@@ -349,61 +354,56 @@ div#deckcount p:last-child {
     background: linear-gradient(to right, #4424D8, rgb(169, 88, 182), rgb(0, 46, 108));
 }
 .barfill > p {
-     -webkit-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
-    font-family: 'Montserrat';
-
-text-align: center;
-font-size: 12px;
-padding-bottom: 140px;
-color: #A59AB6;
-    
+    font-family:'Montserrat';
+    text-align: center;
+    font-size: 12px;
+    padding-bottom: 140px;
+    color: #A59AB6;
 }
 #effectcol h4 {
     margin-top: 0;
-padding-left: 0;
-font-family: 'Roboto';
-text-align: center;
-color: #1B1105;
-font-weight: 800;
-text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rgb(137, 119, 103), 0px -1px rgb(137, 119, 103);
+    padding-left: 0;
+    font-family:'Roboto';
+    text-align: center;
+    color: #1B1105;
+    font-weight: 800;
+    text-shadow: -1px 0px rgb(137, 119, 103), 0px 1px rgb(137, 119, 103), 1px 0px rgb(137, 119, 103), 0px -1px rgb(137, 119, 103);
 }
 #effectcol p {
-    font-family: 'Montserrat';
+    font-family:'Montserrat';
 }
 .badge {
-    font-family: 'Roboto';
+    font-family:'Roboto';
     background-color: #735FAD;
 }
 .manaCost {
-   color: rgb(255, 255, 255);
-font-weight: bold;
-text-shadow: -1px 0px rgb(0, 0, 0), 0px 1px rgb(0, 0, 0), 1px 0px rgb(0, 0, 0), 0px -1px rgb(0, 0, 0);
-font-size: 14px;
-padding: 4px;
-margin: 3.5px;
-width: 28.5px;
-background: url('../img/cost-bg.png') no-repeat scroll;
-text-align: center;
-    
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-shadow: -1px 0px rgb(0, 0, 0), 0px 1px rgb(0, 0, 0), 1px 0px rgb(0, 0, 0), 0px -1px rgb(0, 0, 0);
+    font-size: 14px;
+    padding: 4px;
+    margin: 3.5px;
+    width: 28.5px;
+    background: url('../img/cost-bg.png') no-repeat scroll;
+    text-align: center;
 }
-
 .modal .modal-content {
     -webkit-filter: none !important;
-     -moz-filter: none !important;
-		    -ms-filter: none !important;
-		     -o-filter: none !important;
-		        filter: nonw !important;
-    
+    -moz-filter: none !important;
+    -ms-filter: none !important;
+    -o-filter: none !important;
+    filter: nonw !important;
 }
 #modal {
     background: #342E2A;
 }
 .modal-header {
-    font-family: 'Montserrat';
+    font-family:'Montserrat';
     background: #735FAD;
     text-align: center;
     border-bottom: none;
@@ -412,10 +412,10 @@ text-align: center;
     line-height: initial;
 }
 .form-control:focus {
-border-color: #794EE4;
-outline: 0;
--webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(201, 95, 224, 0.6);
-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(188, 87, 223, 0.6);
+    border-color: #794EE4;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(201, 95, 224, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(188, 87, 223, 0.6);
 }
 .styling-btn {
     background: #735FAD;
@@ -426,7 +426,7 @@ box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(188, 87, 223, 0.6);
     border: none;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: 'Montserrat';
+    font-family:'Montserrat';
     color: #E2DEDE;
     text-shadow: 0px 1px 2px #7A4BED;
     -moz-transition: all 0.25s ease-in-out;
@@ -434,126 +434,149 @@ box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(188, 87, 223, 0.6);
     transition: all 0.25s ease-in-out;
     margin: 3%;
     margin-bottom: 2%;
-  
 }
 .styling-btn:hover {
     /*background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#6B38C2), color-stop(100%,#603184));
 color: rgb(219, 214, 214);
 background: -moz-linear-gradient(top, #6B38C2 5%, #603184 100%);*/
-   
     -moz-transition: all 0.25s ease-in-out;
     -webkit-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
     background: #8E672C;
-color: rgb(200, 191, 181);
-
-text-shadow: 0px 1px 2px #3D2B03;
+    color: rgb(200, 191, 181);
+    text-shadow: 0px 1px 2px #3D2B03;
 }
 .form-group label {
     font-family:'Montserrat';
 }
 .modal-backdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1040;
-  background-color: #000000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000000;
 }
-
 .modal-backdrop.fade {
-  opacity: 0;
-    
+    opacity: 0;
 }
-
 .modal-backdrop, .modal-backdrop.fade.in {
-     -moz-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
     -webkit-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
     opacity: 0.7;
     /*filter: blur grayscale(50%);*/
- /* -webkit-filter: blur(5px) grayscale(50%);
+    /* -webkit-filter: blur(5px) grayscale(50%);
      -moz-filter: blur(5px) grayscale(50%);
 		    -ms-filter: blur(5px) grayscale(50%);
 		     -o-filter: blur(5px) grayscale(50%);
 		        filter: blur(5px) grayscale(50%);*/
-
 }
 .modal-body p {
-    font-family: "Roboto";
-text-align: center;
-font-size: 16px;
-padding: 5px;
+    font-family:"Roboto";
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
 }
-.classimgdiv img{
+.classimgdiv img {
     height: 200px;
 }
 .runcontainer {
     padding: 3%;
 }
 .winloss-input {
-   
-text-align: center;
-font-family: 'Roboto';
-font-weight: 800;
-/*background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#A359E7), color-stop(100%,#372177));
+    text-align: center;
+    font-family:'Roboto';
+    font-weight: 800;
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#A359E7), color-stop(100%,#372177));
 box-shadow: inset 0px 0px 6px #3E4BA1;
 -webkit-box-shadow: inset 0px 0px 6px #3E4BA1;
 border: none;*/
-color: rgb(234, 233, 234);
-text-shadow: 0px 1px #0F106C;
-   
-background: rgba(115, 95, 173, 0.4);
-border-radius: 30px;
-border: 3px solid #735FAD;
-box-shadow: inset 0 0 15px #1D1535;
-   
+    color: rgb(234, 233, 234);
+    text-shadow: 0px 1px #0F106C;
+    background: rgba(115, 95, 173, 0.4);
+    border-radius: 30px;
+    border: 3px solid #735FAD;
+    box-shadow: inset 0 0 15px #1D1535;
 }
 .number-group {
     padding-top: 15px;
 }
 .winloss-group label, input {
-     padding: 5px;
-    
+    padding: 5px;
 }
 .winloss-group {
-   margin: 5px;
+    margin: 5px;
 }
 .runtitle {
-    font-family: 'Montserrat';
-text-shadow: -1px 0px rgb(184, 180, 174), 0px 1px rgb(184, 180, 174), 1px 0px rgb(184, 180, 174), 0px -1px rgb(184, 180, 174);
-color: #443211;
+    font-family:'Montserrat';
+    text-shadow: -1px 0px rgb(184, 180, 174), 0px 1px rgb(184, 180, 174), 1px 0px rgb(184, 180, 174), 0px -1px rgb(184, 180, 174);
+    color: #443211;
     text-align:center;
 }
 .username {
-    font-family: 'Montserrat';
+    font-family:'Montserrat';
     color: #F9F9F9;
-text-transform: capitalize;
-font-size: 120%;
+    text-transform: capitalize;
+    font-size: 120%;
 }
-.updateBtn{
+.updateBtn {
     text-align: center;
-padding: 10px 17px 10px 17px;
-font-family: 'Montserrat';
-color: #C2A871;
-border-radius: 7px;
-background: -webkit-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
-background: -o-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
-background: -moz-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
-background: linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
-border: 3px solid #64380E;
-font-size: 120%;
-font-weight: 800;
-text-shadow: 1px 1px #221630;
+    padding: 10px 17px 10px 17px;
+    font-family:'Montserrat';
+    color: #C2A871;
+    border-radius: 7px;
+    background: -webkit-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
+    background: -o-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
+    background: -moz-linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
+    background: linear-gradient(rgb(174, 112, 29), #5A3812, rgb(41, 26, 47));
+    border: 3px solid #64380E;
+    font-size: 120%;
+    font-weight: 800;
+    text-shadow: 1px 1px #221630;
     margin-top: 15px;
+    -moz-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 .updateBtn:hover {
     background: -webkit-linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
-background: -o-linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
-background: -moz-linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
-background: linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
-color: #D0BE05;
-text-shadow: 1px 1px 5px #D77300;
+    background: -o-linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
+    background: -moz-linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
+    background: linear-gradient(rgb(242, 189, 49), #9E5D14, rgb(90, 40, 13));
+    color: #D0BE05;
+    text-shadow: 1px 1px 5px #D77300;
+    -moz-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
+.top {
+    padding-top:5%;
+}
+.neutral {
+    border: 5px solid #A09B97 !important;
+border-right-color: #68646B !important;
+border-bottom-color: #3D3141 !important;
+}
+.personal-row {
+    width:85%;
+    margin: 0 auto;
+    padding-top: 5%;
+}
+.devtext {
+line-height: 2;
+font-family: 'Lato';
+color: #9E9E9E;
+font-weight: 400;
+font-size: 120%;
+width: 90%;
+}
+.devtext a {
+    color: whitesmoke;
+    font-size: 110%;
+}
+.devtext .nolink:hover {
+    cursor:auto;
+    text-decoration: none;
 }

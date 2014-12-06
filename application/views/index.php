@@ -1,8 +1,6 @@
 
-<div class="frame" >
-     <div class="welcometitle">
-        <h4>Choose Your class</h4>
-    </div>
+<div class="frame start-content" >
+     
     <div id="class-group">
         
    

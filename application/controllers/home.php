@@ -42,13 +42,26 @@ class Home extends CI_Controller {
     {
         echo 'to be implement';
     }
-
-    //return json not render views
-	public function login()
-	{
-		echo 'to be implement';
-	}
-
+    
+    public function about()
+    {
+        //head info
+		$this->load->library('session');
+		$data['status'] = $this->session->userdata('logged_in');
+        $data['user_id'] = $this->session->userdata('user_id');
+		$data['username'] = $this->session->userdata('username');
+        $data['base_url'] = config_item('base_url');
+        $data['title'] = "HS Arena DeckBuilder";
+        $data['css_path'] = config_item('css_path');
+        $data['js_path'] = config_item('js_path');
+        $data['css_files'] = array('hover.css', 'main.css');
+        $data['img_path'] = config_item('img_path');
+		
+		$this->load->view('common/head', $data);
+		$this->load->view('common/nav', $data);
+		$this->load->view('about');
+       
+    }
     public function selection()
     {
         $this->load->library('session');
